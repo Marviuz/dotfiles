@@ -86,4 +86,5 @@ return require("packer").startup(function(use)
 		},
 	})
 	use("andweeb/presence.nvim")
+  use('tpope/vim-fugitive')
 end)
