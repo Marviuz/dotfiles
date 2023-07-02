@@ -20,6 +20,12 @@ lsp.ensure_installed({
 	"cssls",
 	"jsonls",
 	"lua_ls",
+  "astro",
+  "svelte",
+  "tailwindcss",
+  "vimls",
+  "vuels",
+  "yamlls"
 })
 
 -- (Optional) Configure lua language server for neovim
