@@ -86,5 +86,10 @@ return require("packer").startup(function(use)
 		},
 	})
 	use("andweeb/presence.nvim")
-  use('tpope/vim-fugitive')
+	use("tpope/vim-fugitive")
+	use("folke/neodev.nvim", {
+    config = function () 
+      require('neodev').setup({})
+    end
+  })
 end)
