@@ -1,10 +1,6 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
-	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
 	use({ "williamboman/mason.nvim", run = ":MasonUpdate" })
@@ -38,9 +34,8 @@ return require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip" }, -- Required
 		},
 
-		use({ "ellisonleao/gruvbox.nvim" }),
+		use("tomasiser/vim-code-dark"),
 
-		use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }),
 		use({
 			"nvim-lualine/lualine.nvim",
 			requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -77,19 +72,11 @@ return require("packer").startup(function(use)
 	})
 	use("windwp/nvim-ts-autotag")
 	use("lewis6991/gitsigns.nvim")
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional
-			"antosha417/nvim-lsp-file-operations",
-			"echasnovski/mini.base16",
-		},
-	})
-	use("andweeb/presence.nvim")
 	use("tpope/vim-fugitive")
+	use("tpope/vim-commentary")
 	use("folke/neodev.nvim", {
-    config = function () 
-      require('neodev').setup({})
-    end
-  })
+		config = function()
+			require("neodev").setup({})
+		end,
+	})
 end)

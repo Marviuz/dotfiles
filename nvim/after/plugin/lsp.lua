@@ -7,6 +7,8 @@ local navic_on_attach = function(client, bufnr)
 	end
 end
 
+vim.keymap.set("n", "<A-F>", ":LspZeroFormat")
+
 lsp.on_attach(function(client, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
 
