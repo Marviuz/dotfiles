@@ -15,9 +15,13 @@ return {
 			pickers = {
 				find_files = {
 					hidden = true,
+					layout_config = {
+						prompt_position = "top",
+					},
 				},
 			},
 			defaults = {
+				sorting_strategy = "ascending",
 				path_display = { "smart" },
 				mappings = {
 					i = {
