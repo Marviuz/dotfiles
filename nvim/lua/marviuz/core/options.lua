@@ -1,4 +1,4 @@
-vim.api.nvim_exec('language en_US', true)
+vim.api.nvim_exec("language en_US", true)
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
@@ -28,3 +28,9 @@ opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+
+opt.scrolloff = 8
+
+opt.updatetime = 50
+
+opt.colorcolumn = "80"
