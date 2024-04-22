@@ -25,4 +25,6 @@ keymap.set("n", "N", "Nzzzv", { desc = "Center screen when finding" })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "vscode alt + down arrow" })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "vscode alt + up arrow" })
 
+keymap.set("x", "<leader>p", '"_dP', { desc = "Paste over selected without losing copied text" })
+
 keymap.set("n", "<leader>ref", vim.lsp.buf.rename, { desc = "Refactor like vscode F2" })
