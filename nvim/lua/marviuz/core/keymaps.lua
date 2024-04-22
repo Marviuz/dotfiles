@@ -28,4 +28,11 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "vscode alt + up arrow" })
 keymap.set("x", "<leader>p", '"_dP', { desc = "Paste over selected without losing copied text" })
 keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
 
+keymap.set(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace current selected word in current buffer" }
+)
+
 keymap.set("n", "<leader>ref", vim.lsp.buf.rename, { desc = "Refactor like vscode F2" })
