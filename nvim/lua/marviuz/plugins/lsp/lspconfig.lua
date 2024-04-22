@@ -89,13 +89,6 @@ return {
 					},
 				})
 			end,
-			["eslint-lsp"] = function()
-				lspconfig["eslint-lsp"].setup({
-					settings = {
-						workingDirectories = { mode = "auto" },
-					},
-				})
-			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
