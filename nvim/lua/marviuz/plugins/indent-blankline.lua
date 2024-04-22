@@ -4,7 +4,6 @@ return {
 	main = "ibl",
 	opts = {},
 	config = function()
-		local ibl = require("ibl")
 		local hooks = require("ibl.hooks")
 
 		local highlight = {
