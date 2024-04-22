@@ -17,3 +17,5 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "vscode alt + down arrow" })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "vscode alt + up arrow" })
+
+keymap.set("n", "<leader>ref", vim.lsp.buf.rename, { desc = "Refactor like vscode F2"})
