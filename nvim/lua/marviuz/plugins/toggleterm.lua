@@ -3,7 +3,7 @@ return {
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		opts = {
-			open_mapping = "<C-\\>",
+			open_mapping = [[<C-\>]],
 			direction = "float",
 		},
 		config = function(_, opts)
@@ -18,11 +18,15 @@ return {
 				shellxquote = "",
 			}
 
+			local keymap = vim.keymap
+
 			for option, value in pairs(powershell_options) do
 				vim.opt[option] = value
 			end
 
 			toggleterm.setup(opts)
+
+			keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle floating terminal" })
 		end,
 	},
 }
