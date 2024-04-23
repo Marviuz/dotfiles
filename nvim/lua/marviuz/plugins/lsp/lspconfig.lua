@@ -89,6 +89,34 @@ return {
 					},
 				})
 			end,
+			["tsserver"] = function()
+				local function organize_imports()
+					local params = {
+						command = "_typescript.organizeImports",
+						arguments = { vim.api.nvim_buf_get_name(0) },
+						title = "",
+					}
+					vim.lsp.buf.execute_command(params)
+				end
+
+				lspconfig["tsserver"].setup({
+					capabilities = capabilities,
+					commands = {
+						OrganizeImports = {
+							organize_imports,
+							description = "Organize Imports",
+						},
+					},
+					filetypes = {
+						"typescriptreact",
+						"javascriptreact",
+						"typescript",
+						"javascript",
+					},
+				})
+
+				keymap.set("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
+			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
