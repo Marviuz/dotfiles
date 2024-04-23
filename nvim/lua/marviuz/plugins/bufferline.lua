@@ -4,7 +4,7 @@ return {
 	opts = {
 		options = {
 			diagnostics = "nvim_lsp",
-			always_show_bufferline = false,
+			always_show_bufferline = true,
 			mode = "tabs",
 			separator_style = "slant",
 			offsets = {
