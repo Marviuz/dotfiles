@@ -12,5 +12,5 @@ _Note: Also create symlink for `nvim-data`_
 
 ## nvim config
 
-[git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)
-[diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
