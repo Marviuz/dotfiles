@@ -8,4 +8,9 @@ New-Item -ItemType SymbolicLink -Path "C:\Users\<USER>\AppData\Local\<DIRECTORY>
 
 _Note: Also create symlink for `nvim-data`_
 
-## My NVIM config
+# TODO
+
+## nvim config
+
+[git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)
+[diffview.nvim](https://github.com/sindrets/diffview.nvim)
