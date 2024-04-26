@@ -34,5 +34,3 @@ keymap.set(
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Replace current selected word in current buffer" }
 )
-
-keymap.set("n", "<leader>ref", vim.lsp.buf.rename, { desc = "Refactor like vscode F2" })
