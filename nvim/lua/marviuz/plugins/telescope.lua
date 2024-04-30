@@ -15,15 +15,18 @@ return {
 			pickers = {
 				find_files = {
 					hidden = true,
-					layout_config = {
-						prompt_position = "top",
-					},
 				},
 			},
 			defaults = {
+				layout_config = {
+					prompt_position = "top",
+				},
 				sorting_strategy = "ascending",
 				path_display = { "smart" },
 				mappings = {
+					n = {
+						["q"] = actions.close,
+					},
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
