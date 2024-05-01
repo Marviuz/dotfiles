@@ -1,4 +1,3 @@
--- vim.api.nvim_exec("language en_US", true)
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
