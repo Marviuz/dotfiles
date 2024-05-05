@@ -12,14 +12,14 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local map = require("marviuz.utils.map")
+		local telescope_util = require("marviuz.utils.telescope")
 
 		telescope.setup({
 			pickers = {
-				find_files = {
-					hidden = true,
-				},
+				find_files = telescope_util.select_find_command(),
 			},
 			defaults = {
+				file_ignore_patterns = { "node_modules", ".git" },
 				layout_config = {
 					prompt_position = "top",
 				},
@@ -43,8 +43,8 @@ return {
 						["i"] = {
 							-- your custom insert mode mappings
 						},
-						["n"] = {
-							-- your custom normal mode mappings
+						n = {
+							["q"] = actions.close,
 						},
 					},
 				},
