@@ -4,7 +4,11 @@ return {
 		local lspsaga = require("lspsaga")
 		local map = require("marviuz.utils.map")
 
-		lspsaga.setup({})
+		lspsaga.setup({
+			symbol_in_winbar = {
+				enable = false,
+			},
+		})
 
 		map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Refactor variables like VSCode's F2" })
 	end,
