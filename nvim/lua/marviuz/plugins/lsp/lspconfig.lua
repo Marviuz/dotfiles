@@ -119,6 +119,15 @@ return {
 
 				keymap.set("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
 			end,
+			["mdx_analyzer"] = function()
+				-- configure emmet language server
+				lspconfig["mdx_analyzer"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"mdx",
+					},
+				})
+			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
