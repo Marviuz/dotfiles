@@ -3,16 +3,12 @@ local M = {}
 -- Optimized for nextJS development
 M.select_find_command = function()
 	local executable = vim.fn.executable
+	local exclude_patterns = "!{.git/*,.next/*,node_modules/*,.turbo/*,build/*}"
 
 	local rg_command = {
 		initial_mode = "insert",
 		hidden = true,
 		no_ignore = true,
-		file_ignore_patterns = {
-			"node_modules",
-			".git",
-			"build",
-		},
 		find_command = {
 			"rg",
 			"--files",
@@ -23,7 +19,8 @@ M.select_find_command = function()
 			"--smart-case",
 			"--hidden",
 			"--glob",
-			"!{.git/*,.next/*,node_modules/*}",
+			-- "!{.git/*,.next/*,node_modules/*}",
+			exclude_patterns,
 			"--path-separator",
 			"/",
 		},
@@ -40,7 +37,8 @@ M.select_find_command = function()
 			"--include",
 			"lua/**/user/*",
 			"--exclude",
-			"!{.git/*,.next/*,node_modules/*}",
+			-- "!{.git/*,.next/*,node_modules/*}",
+			exclude_patterns,
 		},
 	}
 

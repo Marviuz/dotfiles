@@ -19,7 +19,6 @@ return {
 				find_files = telescope_util.select_find_command(),
 			},
 			defaults = {
-				file_ignore_patterns = { "node_modules", ".git" },
 				layout_config = {
 					prompt_position = "top",
 				},
