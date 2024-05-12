@@ -41,8 +41,9 @@ return {
 				opts.desc = "Show LSP type definitions"
 				map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
-				opts.desc = "See available code actions"
-				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+				-- Use LSP saga code action instead
+				-- opts.desc = "See available code actions"
+				-- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 				-- Use lspsaga to refactor variables
 				-- opts.desc = "Smart rename"
@@ -85,10 +86,6 @@ return {
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
-					-- filetypes = {
-					-- 	"typescriptreact",
-					-- 	"typescript",
-					-- },
 				})
 			end,
 			["tsserver"] = function()
