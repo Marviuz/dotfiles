@@ -11,7 +11,7 @@ return {
 		})
 
 		map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Refactor variables like VSCode's F2" })
-		map("n", "<leader>ca", "<cmd>Lspsaga code_action", { desc = "Code actions" })
+		map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code actions" })
 	end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
