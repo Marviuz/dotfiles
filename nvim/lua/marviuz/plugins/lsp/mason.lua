@@ -43,6 +43,7 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d",
 				"eslint",
+				"jsonls",
 			},
 		})
 	end,

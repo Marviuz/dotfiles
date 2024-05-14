@@ -1,13 +1,17 @@
 return {
 	"stevearc/oil.nvim",
-	opts = {},
+	opts = {
+		view_options = {
+			show_hidden = true,
+		},
+	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function()
+	config = function(_, opts)
 		local oil = require("oil")
-		local keymap = vim.keymap
+		local map = require("marviuz.utils.map")
 
-		oil.setup()
+		oil.setup(opts)
 
-		keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
 }
