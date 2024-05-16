@@ -43,6 +43,7 @@ return {
 	-- end,
 
 	"Mofiqul/vscode.nvim",
+	priority = 1000,
 	opts = {
 		style = "dark",
 
