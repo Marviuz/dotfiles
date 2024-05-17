@@ -6,10 +6,10 @@ return {
 		local map = require("marviuz.utils.map")
 
 		lint.linters_by_ft = {
-			typescript = { "eslint_d", "eslint" },
-			javascript = { "eslint_d", "eslint" },
-			typescriptreact = { "eslint_d", "eslint" },
-			javascriptreact = { "eslint_d", "eslint" },
+			typescript = { "eslint_d" },
+			javascript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
