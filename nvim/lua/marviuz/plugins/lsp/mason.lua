@@ -42,7 +42,6 @@ return {
 				"prettier",
 				"stylua", -- lua formatter
 				"eslint_d",
-				"eslint",
 				"jsonls",
 			},
 		})
