@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 local map = require("marviuz.utils.map")
 
+map("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
