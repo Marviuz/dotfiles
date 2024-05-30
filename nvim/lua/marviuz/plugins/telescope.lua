@@ -58,6 +58,7 @@ return {
 		map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+		map("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "View modified files" })
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 

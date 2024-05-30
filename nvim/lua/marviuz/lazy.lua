@@ -15,7 +15,6 @@ require("lazy").setup({
 	{ import = "marviuz.plugins" },
 	{ import = "marviuz.plugins.lsp" },
 	{ import = "marviuz.plugins.git" },
-	{ import = "marviuz.plugins.habits" },
 }, {
 	checker = {
 		enabled = true,
