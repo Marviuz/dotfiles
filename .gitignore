@@ -3,3 +3,4 @@ nvim-data*
 tmux/plugins/*
 configstore
 nextjs-nodejs
+.env*
