@@ -42,25 +42,32 @@ return {
 	--     vim.cmd("colorscheme carbonfox")
 	-- end,
 
-	"Mofiqul/vscode.nvim",
+	-- "Mofiqul/vscode.nvim",
+	-- priority = 1000,
+	-- opts = {
+	-- 	style = "dark",
+	--
+	-- 	-- Enable transparent background
+	-- 	transparent = true,
+	--
+	-- 	-- Enable italic comment
+	-- 	italic_comments = true,
+	--
+	-- 	-- Underline `@markup.link.*` variants
+	-- 	underline_links = true,
+	--
+	-- 	-- Disable nvim-tree background color
+	-- 	disable_nvimtree_bg = true,
+	-- },
+	-- config = function(_, opts)
+	-- 	require("vscode").setup(opts)
+	-- 	vim.cmd.colorscheme("vscode")
+	-- end,
+
+	"rebelot/kanagawa.nvim",
+	lazy = false,
 	priority = 1000,
-	opts = {
-		style = "dark",
-
-		-- Enable transparent background
-		transparent = true,
-
-		-- Enable italic comment
-		italic_comments = true,
-
-		-- Underline `@markup.link.*` variants
-		underline_links = true,
-
-		-- Disable nvim-tree background color
-		disable_nvimtree_bg = true,
-	},
-	config = function(_, opts)
-		require("vscode").setup(opts)
-		vim.cmd.colorscheme("vscode")
+	config = function()
+		vim.cmd.colorscheme("kanagawa-dragon")
 	end,
 }
