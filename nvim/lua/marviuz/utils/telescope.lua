@@ -49,4 +49,30 @@ M.select_find_command = function()
 	end
 end
 
+M.unsaved_buffers = function()
+	local actions = require("telescope.actions")
+	local action_state = require("telescope.actions.state")
+	local pickers = require("telescope.pickers")
+	local finders = require("telescope.finders")
+	local conf = require("telescope.config").values
+
+	local bufnrs = vim.tbl_filter(function(bufnr)
+		return vim.bo[bufnr].modified
+	end, vim.api.nvim_list_bufs())
+
+	local buf_names = vim.tbl_map(function(bufnr)
+		return vim.api.nvim_buf_get_name(bufnr)
+	end, bufnrs)
+
+	pickers
+		.new({}, {
+			prompt_title = "Unsaved Buffers",
+			finder = finders.new_table({
+				results = buf_names,
+			}),
+			sorter = conf.generic_sorter({}),
+		})
+		:find()
+end
+
 return M
