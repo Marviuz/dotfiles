@@ -61,7 +61,7 @@ return {
 		map("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "View modified files" })
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-		map("n", "<leader>ub", telescope_util.unsaved_buffers, { noremap = true, silent = true })
+		map("n", "<leader>ub", telescope_util.unsaved_buffers, { desc = "View unsaved buffers" })
 
 		map(
 			"n",
