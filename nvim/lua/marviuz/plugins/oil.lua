@@ -2,7 +2,12 @@ return {
 	"stevearc/oil.nvim",
 	opts = {
 		view_options = {
+			default_file_explorer = true,
+			delete_to_trash = true,
 			show_hidden = true,
+			is_always_hidden = function(name, _)
+				return name == ".."
+			end,
 		},
 		win_options = {
 			winbar = "%{v:lua.require('oil').get_current_dir()}",

@@ -116,6 +116,21 @@ return {
 
 				map("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
 			end,
+			["tailwindcss"] = function()
+				lspconfig["tailwindcss"].setup({
+					capabilities = capabilities,
+					settings = {
+						tailwindCSS = {
+							experimental = {
+								classRegex = {
+									{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+									{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+								},
+							},
+						},
+					},
+				})
+			end,
 			["mdx_analyzer"] = function()
 				-- configure emmet language server
 				lspconfig["mdx_analyzer"].setup({
