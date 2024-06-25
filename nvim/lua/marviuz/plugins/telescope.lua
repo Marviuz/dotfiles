@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"folke/todo-comments.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
+		"nvim-telescope/telescope-project.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -51,6 +52,7 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("project")
 		telescope.load_extension("file_browser")
 
 		map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
@@ -62,6 +64,7 @@ return {
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		map("n", "<leader>ub", telescope_util.unsaved_buffers, { desc = "View unsaved buffers" })
+		map("n", "<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", { desc = "Browse projects" })
 
 		map(
 			"n",
