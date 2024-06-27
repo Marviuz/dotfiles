@@ -7,14 +7,12 @@ return {
 	},
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
+		local auto_tag = require("nvim-ts-autotag")
 		treesitter.setup({
 			highlight = {
 				enable = true,
 			},
 			indent = { enable = true },
-			autotag = {
-				enable = true,
-			},
 			ensure_installed = {
 				"json",
 				"jsonc",
@@ -44,5 +42,7 @@ return {
 				},
 			},
 		})
+
+		auto_tag.setup()
 	end,
 }
