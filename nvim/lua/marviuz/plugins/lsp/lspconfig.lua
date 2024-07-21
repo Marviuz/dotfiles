@@ -88,17 +88,17 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["eslint"] = function()
-				lspconfig["eslint"].setup({
-					capabilities = capabilities,
-					on_new_config = function(config, new_root_dir)
-						config.settings.workspaceFolder = {
-							uri = vim.uri_from_fname(new_root_dir),
-							name = vim.fn.fnamemodify(new_root_dir, ":t"),
-						}
-					end,
-				})
-			end,
+			-- ["eslint"] = function()
+			-- 	lspconfig["eslint"].setup({
+			-- 		capabilities = capabilities,
+			-- 		on_new_config = function(config, new_root_dir)
+			-- 			config.settings.workspaceFolder = {
+			-- 				uri = vim.uri_from_fname(new_root_dir),
+			-- 				name = vim.fn.fnamemodify(new_root_dir, ":t"),
+			-- 			}
+			-- 		end,
+			-- 	})
+			-- end,
 			["tsserver"] = function()
 				local function organize_imports()
 					local params = {

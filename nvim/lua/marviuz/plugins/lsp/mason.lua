@@ -41,8 +41,8 @@ return {
 				"prettierd", -- prettier formatter
 				-- "prettier",
 				"stylua", -- lua formatter
-				-- "eslint_d",
-				"eslint",
+				"eslint_d",
+				-- "eslint",
 				"jsonls",
 			},
 		})
