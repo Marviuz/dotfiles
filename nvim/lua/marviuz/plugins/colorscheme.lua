@@ -71,16 +71,29 @@ return {
 	-- 	vim.cmd.colorscheme("kanagawa-dragon")
 	-- end,
 
-	"olivercederborg/poimandres.nvim",
+	-- "olivercederborg/poimandres.nvim",
+	-- lazy = false,
+	-- priority = 1000,
+	-- config = function()
+	-- 	require("poimandres").setup({
+	-- 		-- leave this setup function empty for default config
+	-- 		-- or refer to the configuration section
+	-- 		-- for configuration options
+	-- 	})
+	--
+	-- 	vim.cmd.colorscheme("poimandres")
+	-- end,
+
+	"Marviuz/bluimandres.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("poimandres").setup({
+		require("bluimandres").setup({
 			-- leave this setup function empty for default config
 			-- or refer to the configuration section
 			-- for configuration options
 		})
 
-		vim.cmd.colorscheme("poimandres")
+		vim.cmd.colorscheme("bluimandres")
 	end,
 }
