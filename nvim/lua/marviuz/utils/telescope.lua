@@ -71,6 +71,19 @@ M.unsaved_buffers = function()
 				results = buf_names,
 			}),
 			sorter = conf.generic_sorter({}),
+			attach_mappings = function(bufnr, map)
+				local function open_file()
+					local selection = action_state.get_selected_entry()
+					actions.close(bufnr)
+					if selection then
+						local file_path = selection.value
+						vim.cmd("edit " .. vim.fn.fnameescape(file_path))
+					end
+				end
+				map("i", "<CR>", open_file)
+				map("n", "<CR>", open_file)
+				return true
+			end,
 		})
 		:find()
 end
