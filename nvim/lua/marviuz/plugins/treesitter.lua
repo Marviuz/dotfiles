@@ -44,5 +44,11 @@ return {
 		})
 
 		auto_tag.setup()
+
+		vim.filetype.add({
+			extension = {
+				mdx = "markdown.mdx",
+			},
+		})
 	end,
 }

@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
+	cmd = { "ConformInfo", "Format", "PrettierdReload" },
 	config = function()
 		local conform = require("conform")
 
@@ -16,6 +17,7 @@ return {
 				json = { "prettierd", "prettier", stop_after_first = true },
 				yaml = { "prettierd", "prettier", stop_after_first = true },
 				markdown = { "prettierd", "prettier", stop_after_first = true },
+				["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
 			},
 			format_on_save = {
