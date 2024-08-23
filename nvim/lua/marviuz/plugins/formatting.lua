@@ -4,6 +4,7 @@ return {
 	cmd = { "ConformInfo", "Format", "PrettierdReload" },
 	config = function()
 		local conform = require("conform")
+		local map = require("marviuz.utils.map")
 
 		conform.setup({
 			formatters_by_ft = {
@@ -27,12 +28,14 @@ return {
 			},
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		map({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,
 				timeout_ms = 10000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
+
+		map({ "n", "v" }, "<leader>me", ":EslintFixAll", { desc = "Run :EslintFixAll<cr>" })
 	end,
 }
