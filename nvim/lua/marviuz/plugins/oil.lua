@@ -1,6 +1,9 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {
+		lsp_file_methods = {
+			timeout_ms = 10000,
+		},
 		view_options = {
 			default_file_explorer = true,
 			delete_to_trash = true,
