@@ -36,6 +36,6 @@ return {
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 
-		map({ "n", "v" }, "<leader>me", ":EslintFixAll", { desc = "Run :EslintFixAll<cr>" })
+		map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
 	end,
 }
