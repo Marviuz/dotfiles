@@ -5,6 +5,9 @@ return {
 		local map = require("marviuz.utils.map")
 
 		lspsaga.setup({
+			ui = {
+				lightBulb = false,
+			},
 			symbol_in_winbar = {
 				enable = false,
 			},

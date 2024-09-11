@@ -77,7 +77,8 @@ M.unsaved_buffers = function()
 					actions.close(bufnr)
 					if selection then
 						local file_path = selection.value
-						vim.cmd("edit " .. vim.fn.fnameescape(file_path))
+						local normalized_path = string.gsub(file_path, "\\", "/")
+						vim.cmd("edit " .. vim.fn.fnameescape(normalized_path))
 					end
 				end
 				map("i", "<CR>", open_file)

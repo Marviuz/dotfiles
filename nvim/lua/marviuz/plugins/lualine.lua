@@ -34,6 +34,18 @@ return {
 		local harpoon = require("harpoon")
 		local map = require("marviuz.utils.map")
 
+		local indicator_symbols = { "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨" }
+		local indicators = {}
+		local active_indicators = {}
+
+		for idx, indicator in ipairs(indicator_symbols) do
+			indicators[idx] = get_harpoon_indicator(indicator .. " ")
+		end
+
+		for idx, indicator in ipairs(indicator_symbols) do
+			active_indicators[idx] = get_harpoon_indicator("● ")
+		end
+
 		lualine.setup({
 			options = {
 				section_separators = { left = "" },
@@ -42,18 +54,8 @@ return {
 				lualine_a = {
 					{
 						"harpoon2",
-						indicators = {
-							get_harpoon_indicator("① "),
-							get_harpoon_indicator("② "),
-							get_harpoon_indicator("③ "),
-							get_harpoon_indicator("④ "),
-						},
-						active_indicators = {
-							get_harpoon_indicator("● "),
-							get_harpoon_indicator("● "),
-							get_harpoon_indicator("● "),
-							get_harpoon_indicator("● "),
-						},
+						indicators = indicators,
+						active_indicators = active_indicators,
 						_separator = " ",
 					},
 				},
@@ -82,18 +84,24 @@ return {
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, { desc = "Harpoon quick menu" })
 
-		map("n", "<leader>1", function()
-			harpoon:list():select(1)
-		end, { desc = "harpoon select 1" })
-		map("n", "<leader>2", function()
-			harpoon:list():select(2)
-		end, { desc = "harpoon select 2" })
-		map("n", "<leader>3", function()
-			harpoon:list():select(3)
-		end, { desc = "harpoon select 3" })
-		map("n", "<leader>4", function()
-			harpoon:list():select(4)
-		end, { desc = "harpoon select 4" })
+		for idx, _ in ipairs(indicator_symbols) do
+			map("n", "<leader>" .. idx, function()
+				harpoon:list():select(idx)
+			end, { desc = "harpoon select " .. idx })
+		end
+
+		-- map("n", "<leader>1", function()
+		-- 	harpoon:list():select(1)
+		-- end, { desc = "harpoon select 1" })
+		-- map("n", "<leader>2", function()
+		-- 	harpoon:list():select(2)
+		-- end, { desc = "harpoon select 2" })
+		-- map("n", "<leader>3", function()
+		-- 	harpoon:list():select(3)
+		-- end, { desc = "harpoon select 3" })
+		-- map("n", "<leader>4", function()
+		-- 	harpoon:list():select(4)
+		-- end, { desc = "harpoon select 4" })
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		map("n", "<C-S-,>", function()

@@ -33,6 +33,8 @@ return {
 				"tailwindcss",
 				"lua_ls",
 				"emmet_ls",
+				"css_variables",
+				"cssmodules_ls",
 				"lemminx",
 			},
 		})
