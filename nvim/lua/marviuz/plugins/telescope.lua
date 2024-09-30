@@ -8,6 +8,7 @@ return {
 		"folke/todo-comments.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
 		"nvim-telescope/telescope-project.nvim",
+		"albenisolmos/telescope-oil.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -54,6 +55,7 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("project")
 		telescope.load_extension("file_browser")
+		telescope.load_extension("oil")
 
 		map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
@@ -72,5 +74,7 @@ return {
 			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 			{ desc = "open file_browser with the path of the current buffer" }
 		)
+
+		map("n", "<space>fd", "<cmd>Telescope oil<CR>", { desc = "Find directory" })
 	end,
 }
