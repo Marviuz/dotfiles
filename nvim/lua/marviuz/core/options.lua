@@ -32,6 +32,6 @@ opt.scrolloff = 8
 
 opt.updatetime = 50
 
-opt.colorcolumn = "80"
+opt.colorcolumn = ""
 
 opt.swapfile = false
