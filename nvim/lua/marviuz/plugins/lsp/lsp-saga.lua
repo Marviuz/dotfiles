@@ -1,5 +1,10 @@
 return {
 	"nvimdev/lspsaga.nvim",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		-- "nvim-tree/nvim-web-devicons",
+		{ "echasnovski/mini.icons", version = "*" },
+	},
 	config = function()
 		local lspsaga = require("lspsaga")
 		local map = require("marviuz.utils.map")
@@ -17,8 +22,4 @@ return {
 		map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code actions" })
 		map("n", "<leader>k", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Show line diagnostics" })
 	end,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
-	},
 }

@@ -4,7 +4,8 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-tree/nvim-web-devicons",
+		-- "nvim-tree/nvim-web-devicons",
+		{ "echasnovski/mini.icons", version = "*" },
 		"folke/todo-comments.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
 		"nvim-telescope/telescope-project.nvim",

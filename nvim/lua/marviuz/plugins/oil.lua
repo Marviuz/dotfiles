@@ -1,5 +1,9 @@
 return {
 	"stevearc/oil.nvim",
+	dependencies = {
+		-- "nvim-tree/nvim-web-devicons",
+		{ "echasnovski/mini.icons", version = "*" },
+	},
 	opts = {
 		lsp_file_methods = {
 			timeout_ms = 10000,
@@ -16,7 +20,6 @@ return {
 			winbar = "%{v:lua.require('oil').get_current_dir()}",
 		},
 	},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function(_, opts)
 		local oil = require("oil")
 		local map = require("marviuz.utils.map")
