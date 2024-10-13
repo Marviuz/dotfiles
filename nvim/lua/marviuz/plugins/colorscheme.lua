@@ -25,6 +25,15 @@ return {
 			{
 				name = "Nightfox",
 				colorscheme = "carbonfox",
+				before = function()
+					local nightfox = require("nightfox")
+
+					nightfox.setup({
+						options = {
+							transparent = true,
+						},
+					})
+				end,
 			},
 			{
 				name = "Catppuccin",
@@ -45,8 +54,26 @@ return {
 				end,
 			},
 			{
-				name = "Kanagawa",
+				name = "Kanagawa Dragon",
 				colorscheme = "kanagawa-dragon",
+				before = function()
+					local kanagawa = require("kanagawa")
+
+					kanagawa.setup({
+						transparent = true,
+					})
+				end,
+			},
+			{
+				name = "Kanagawa Wave",
+				colorscheme = "kanagawa-wave",
+				before = function()
+					local kanagawa = require("kanagawa")
+
+					kanagawa.setup({
+						transparent = true,
+					})
+				end,
 			},
 			{
 				name = "Poimandres",

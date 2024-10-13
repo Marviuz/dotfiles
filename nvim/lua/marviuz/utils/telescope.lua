@@ -3,7 +3,8 @@ local M = {}
 -- Optimized for nextJS development
 M.select_find_command = function()
 	local executable = vim.fn.executable
-	local exclude_patterns = "!{.git/*,.next/*,**/node_modules/*,.turbo/*,build/*}"
+	-- deps and build directories
+	local exclude_patterns = "!{.git/*,.next/*,**/node_modules/*,.turbo/*,build/*,out/*}"
 
 	local rg_command = {
 		initial_mode = "insert",
