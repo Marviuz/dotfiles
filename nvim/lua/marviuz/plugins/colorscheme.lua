@@ -176,6 +176,24 @@ local colorschemes = {
 			})
 		end,
 	},
+	{
+		name = "Oxocarbon",
+		colorscheme = "oxocarbon",
+		before = function()
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		end,
+	},
+	{
+		name = "Nightowl",
+		colorscheme = "night-owl",
+		before = function()
+			local night_owl = require("night-owl")
+
+			night_owl.setup({
+				transparent_background = true,
+			})
+		end,
+	},
 }
 
 table.sort(colorschemes, function(a, b)
@@ -200,6 +218,8 @@ return {
 		"AlexvZyl/nordic.nvim",
 		{ "bluz71/vim-moonfly-colors", name = "moonfly" },
 		"slugbyte/lackluster.nvim",
+		"nyoom-engineering/oxocarbon.nvim",
+		"oxfist/night-owl.nvim",
 	},
 	lazy = false,
 	priority = 1000,
