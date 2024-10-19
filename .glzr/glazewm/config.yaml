@@ -130,6 +130,9 @@ window_rules:
       - window_title: { regex: "Arc [Pp]icture in [Pp]icture" }
       - window_title: { regex: "Arc extension popup" }
 
+      # Ignore in-game browser windows.
+      - window_class: { regex: "CefBrowserWindow" }
+
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
