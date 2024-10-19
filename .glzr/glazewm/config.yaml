@@ -126,8 +126,9 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
 
-      - window_title: { regex: "KRWebView" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      # Ignore Arc browser popups.
+      - window_title: { regex: "Arc [Pp]icture in [Pp]icture" }
+      - window_title: { regex: "Arc extension popup" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -237,8 +238,8 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec wt"]
-    bindings: ["alt+enter"]
+  # - commands: ["shell-exec wezterm"]
+  #   bindings: ["alt+enter"]
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - commands: ["focus --next-workspace"]
