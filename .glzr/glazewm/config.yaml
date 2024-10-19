@@ -130,8 +130,8 @@ window_rules:
       - window_title: { regex: "Arc [Pp]icture in [Pp]icture" }
       - window_title: { regex: "Arc extension popup" }
 
-      # Ignore in-game browser windows.
-      - window_class: { regex: "CefBrowserWindow" }
+      - window_class: { regex: "CefBrowserWindow" } # Ignore wuthering waves (probably other games as well) in-game browser windows.
+      - window_class: { regex: "Qt5152QWindowIcon" } # Strinova stuff -- tbh i dont know what this is
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
