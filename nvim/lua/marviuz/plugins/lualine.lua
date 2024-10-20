@@ -1,4 +1,4 @@
-function get_filename(path)
+local function get_filename(path)
 	local lastSlashForward = path:match(".*[/\\]([^/\\]*)$")
 	local lastSlashBackward = path:match(".*[\\/]([^\\/]+)$")
 
@@ -20,7 +20,6 @@ end
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
-		-- "nvim-tree/nvim-web-devicons",
 		{ "echasnovski/mini.icons", version = "*" },
 		"nvim-lua/plenary.nvim",
 		{
@@ -43,13 +42,13 @@ return {
 			indicators[idx] = get_harpoon_indicator(indicator .. " ")
 		end
 
-		for idx, indicator in ipairs(indicator_symbols) do
+		for idx, _ in ipairs(indicator_symbols) do
 			active_indicators[idx] = get_harpoon_indicator("● ")
 		end
 
 		lualine.setup({
 			options = {
-				section_separators = { left = "" },
+				section_separators = { left = "", right = "" },
 			},
 			tabline = {
 				lualine_a = {
@@ -90,19 +89,6 @@ return {
 				harpoon:list():select(idx)
 			end, { desc = "harpoon select " .. idx })
 		end
-
-		-- map("n", "<leader>1", function()
-		-- 	harpoon:list():select(1)
-		-- end, { desc = "harpoon select 1" })
-		-- map("n", "<leader>2", function()
-		-- 	harpoon:list():select(2)
-		-- end, { desc = "harpoon select 2" })
-		-- map("n", "<leader>3", function()
-		-- 	harpoon:list():select(3)
-		-- end, { desc = "harpoon select 3" })
-		-- map("n", "<leader>4", function()
-		-- 	harpoon:list():select(4)
-		-- end, { desc = "harpoon select 4" })
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		map("n", "<C-S-,>", function()
