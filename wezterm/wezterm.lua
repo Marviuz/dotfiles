@@ -9,7 +9,7 @@ config.default_cursor_style = "BlinkingBar"
 config.background = {
 	{
 		source = {
-			File = "D:\\Images\\Wallpapers\\Wuthering Waves\\GZmwQV9WoAghxQ4-transformed-upscaled-edited.png",
+			File = wezterm.home_dir .. "\\.config\\wezterm\\assets\\wallpaper.png",
 		},
 		horizontal_align = "Center",
 		vertical_align = "Middle",
