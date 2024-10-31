@@ -1,3 +1,5 @@
+local transparent_enabled = vim.g.transparent_enabled
+
 local colorschemes = {
 	{
 		name = "Nightfox",
@@ -7,7 +9,7 @@ local colorschemes = {
 
 			nightfox.setup({
 				options = {
-					transparent = true,
+					transparent = transparent_enabled,
 				},
 			})
 		end,
@@ -19,7 +21,7 @@ local colorschemes = {
 			local catppuccin = require("catppuccin")
 
 			catppuccin.setup({
-				transparent_background = true,
+				transparent_background = transparent_enabled,
 				color_overrides = {
 					mocha = {
 						base = "#000000",
@@ -37,7 +39,7 @@ local colorschemes = {
 			local kanagawa = require("kanagawa")
 
 			kanagawa.setup({
-				transparent = true,
+				transparent = transparent_enabled,
 			})
 		end,
 	},
@@ -48,7 +50,7 @@ local colorschemes = {
 			local kanagawa = require("kanagawa")
 
 			kanagawa.setup({
-				transparent = true,
+				transparent = transparent_enabled,
 			})
 		end,
 	},
@@ -59,9 +61,9 @@ local colorschemes = {
 			local tokyonight = require("tokyonight")
 
 			tokyonight.setup({
-				on_colors = function(colors) end,
+				on_colors = function() end,
 				style = "night",
-				transparent = true,
+				transparent = transparent_enabled,
 				on_highlights = function(hl)
 					hl.TelescopeNormal.bg = "none"
 					hl.TelescopeBorder.bg = "none"
@@ -77,7 +79,7 @@ local colorschemes = {
 			local bluimandres = require("bluimandres")
 
 			bluimandres.setup({
-				disable_background = true,
+				disable_background = transparent_enabled,
 			})
 		end,
 	},
@@ -87,7 +89,7 @@ local colorschemes = {
 		before = function()
 			local poimandres = require("poimandres")
 			poimandres.setup({
-				disable_background = true,
+				disable_background = transparent_enabled,
 			})
 		end,
 	},
@@ -98,7 +100,7 @@ local colorschemes = {
 			local vscode_modern = require("vscode_modern")
 
 			vscode_modern.setup({
-				transparent_background = true,
+				transparent_background = transparent_enabled,
 			})
 		end,
 	},
@@ -110,7 +112,7 @@ local colorschemes = {
 
 			vscode.setup({
 				style = "dark",
-				transparent = true,
+				transparent = transparent_enabled,
 				italic_comments = true,
 				underline_links = true,
 				disable_nvimtree_bg = true,
@@ -132,7 +134,9 @@ local colorschemes = {
 			local cyberdream = require("cyberdream")
 
 			cyberdream.setup({
-				transparent = true,
+				lightmode = false,
+				ignore_filetype = {},
+				transparent = transparent_enabled,
 			})
 		end,
 	},
@@ -140,7 +144,7 @@ local colorschemes = {
 		name = "Nord",
 		colorscheme = "nord",
 		before = function()
-			vim.g.nord_disable_background = true
+			vim.g.nord_disable_background = transparent_enabled
 		end,
 	},
 	{
@@ -151,7 +155,7 @@ local colorschemes = {
 
 			nordic.setup({
 				transparent = {
-					bg = true,
+					bg = transparent_enabled,
 				},
 			})
 		end,
@@ -160,7 +164,7 @@ local colorschemes = {
 		name = "Moonfly",
 		colorscheme = "moonfly",
 		before = function()
-			vim.g.moonflyTransparent = true
+			vim.g.moonflyTransparent = transparent_enabled
 		end,
 	},
 	{
@@ -170,6 +174,7 @@ local colorschemes = {
 			local lackluster = require("lackluster")
 
 			lackluster.setup({
+				disable_plugin = {},
 				tweak_background = {
 					normal = "none",
 				},
@@ -190,9 +195,57 @@ local colorschemes = {
 			local night_owl = require("night-owl")
 
 			night_owl.setup({
-				transparent_background = true,
+				lightmode = false,
+				ignore_filetype = {},
+				transparent_background = transparent_enabled,
 			})
 		end,
+	},
+	{
+		name = "No Clown Fiesta",
+		colorscheme = "no-clown-fiesta",
+		before = function()
+			local no_clown_fiesta = require("no-clown-fiesta")
+
+			no_clown_fiesta.setup({
+				transparent = transparent_enabled,
+			})
+		end,
+	},
+	{
+		name = "Yugen",
+		colorscheme = "yugen",
+	},
+	{
+		name = "Rasmus",
+		colorscheme = "rasmus",
+		before = function()
+			vim.g.rasmus_transparent = transparent_enabled
+		end,
+	},
+	{
+		name = "Neg",
+		colorscheme = "neg",
+	},
+	{
+		name = "Nyctophilia Nox",
+		colorscheme = "nox",
+	},
+	{
+		name = "Nyctophilia Umbra",
+		colorscheme = "umbra",
+	},
+	{
+		name = "Nyctophilia Nebula",
+		colorscheme = "nebula",
+	},
+	{
+		name = "Nyctophilia Tenebra",
+		colorscheme = "tenebra",
+	},
+	{
+		name = "Iceberg",
+		colorscheme = "iceberg",
 	},
 }
 
@@ -203,6 +256,7 @@ end)
 return {
 	"panghu-huang/theme-picker.nvim",
 	dependencies = {
+		"xiyaowong/transparent.nvim",
 		"EdenEast/nightfox.nvim",
 		"felipeagc/fleet-theme-nvim",
 		"catppuccin/nvim",
@@ -220,6 +274,12 @@ return {
 		"slugbyte/lackluster.nvim",
 		"nyoom-engineering/oxocarbon.nvim",
 		"oxfist/night-owl.nvim",
+		"aktersnurra/no-clown-fiesta.nvim",
+		"bettervim/yugen.nvim",
+		"kvrohit/rasmus.nvim",
+		"neg-serg/neg.nvim",
+		"javiorfo/nvim-nyctophilia",
+		"oahlen/iceberg.nvim",
 	},
 	lazy = false,
 	priority = 1000,
@@ -234,8 +294,10 @@ return {
 	},
 	config = function(_, opts)
 		local theme_picker = require("theme-picker")
+		local transparent = require("transparent")
 
 		theme_picker.setup(opts)
+		transparent.setup()
 
 		vim.api.nvim_create_user_command("ThemePicker", function()
 			theme_picker.open_theme_picker()
