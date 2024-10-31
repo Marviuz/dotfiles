@@ -15,24 +15,6 @@ local colorschemes = {
 		end,
 	},
 	{
-		name = "Catppuccin",
-		colorscheme = "catppuccin-mocha",
-		before = function()
-			local catppuccin = require("catppuccin")
-
-			catppuccin.setup({
-				transparent_background = transparent_enabled,
-				color_overrides = {
-					mocha = {
-						base = "#000000",
-						mantle = "#000000",
-						crust = "#000000",
-					},
-				},
-			})
-		end,
-	},
-	{
 		name = "Kanagawa Dragon",
 		colorscheme = "kanagawa-dragon",
 		before = function()
@@ -124,10 +106,6 @@ local colorschemes = {
 		colorscheme = "fleet",
 	},
 	{
-		name = "Midnight",
-		colorscheme = "midnight",
-	},
-	{
 		name = "Cyberdream",
 		colorscheme = "cyberdream",
 		before = function()
@@ -202,17 +180,6 @@ local colorschemes = {
 		end,
 	},
 	{
-		name = "No Clown Fiesta",
-		colorscheme = "no-clown-fiesta",
-		before = function()
-			local no_clown_fiesta = require("no-clown-fiesta")
-
-			no_clown_fiesta.setup({
-				transparent = transparent_enabled,
-			})
-		end,
-	},
-	{
 		name = "Yugen",
 		colorscheme = "yugen",
 	},
@@ -227,26 +194,6 @@ local colorschemes = {
 		name = "Neg",
 		colorscheme = "neg",
 	},
-	{
-		name = "Nyctophilia Nox",
-		colorscheme = "nox",
-	},
-	{
-		name = "Nyctophilia Umbra",
-		colorscheme = "umbra",
-	},
-	{
-		name = "Nyctophilia Nebula",
-		colorscheme = "nebula",
-	},
-	{
-		name = "Nyctophilia Tenebra",
-		colorscheme = "tenebra",
-	},
-	{
-		name = "Iceberg",
-		colorscheme = "iceberg",
-	},
 }
 
 table.sort(colorschemes, function(a, b)
@@ -259,13 +206,11 @@ return {
 		"xiyaowong/transparent.nvim",
 		"EdenEast/nightfox.nvim",
 		"felipeagc/fleet-theme-nvim",
-		"catppuccin/nvim",
 		"rebelot/kanagawa.nvim",
 		"olivercederborg/poimandres.nvim",
 		"Mofiqul/vscode.nvim",
 		"folke/tokyonight.nvim",
 		"Marviuz/bluimandres.nvim",
-		"dasupradyumna/midnight.nvim",
 		"gmr458/vscode_modern_theme.nvim",
 		"scottmckendry/cyberdream.nvim",
 		"shaunsingh/nord.nvim",
@@ -274,12 +219,9 @@ return {
 		"slugbyte/lackluster.nvim",
 		"nyoom-engineering/oxocarbon.nvim",
 		"oxfist/night-owl.nvim",
-		"aktersnurra/no-clown-fiesta.nvim",
 		"bettervim/yugen.nvim",
 		"kvrohit/rasmus.nvim",
 		"neg-serg/neg.nvim",
-		"javiorfo/nvim-nyctophilia",
-		"oahlen/iceberg.nvim",
 	},
 	lazy = false,
 	priority = 1000,
