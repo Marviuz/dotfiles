@@ -136,6 +136,8 @@ window_rules:
 
       - window_class: { regex: "CefBrowserWindow" } # Ignore wuthering waves (probably other games as well) in-game browser windows.
       - window_class: { regex: "Qt5152QWindowIcon" } # Strinova stuff -- tbh i dont know what this is
+      - window_class: { regex: "WinListerMain" } # Winlister
+      - window_class: { regex: "#32770" } # IDM
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
