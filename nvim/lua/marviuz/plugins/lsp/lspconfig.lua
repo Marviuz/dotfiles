@@ -63,8 +63,9 @@ return {
 				opts.desc = "Go to next diagnostic"
 				map("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
-				opts.desc = "Show documentation for what is under cursor"
-				map("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+				-- Use Lspsaga to hover
+				-- opts.desc = "Show documentation for what is under cursor"
+				-- map("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 				opts.desc = "Restart LSP"
 				map("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
