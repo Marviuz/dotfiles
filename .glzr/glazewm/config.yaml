@@ -139,6 +139,26 @@ window_rules:
       - window_class: { regex: "WinListerMain" } # Winlister
       - window_class: { regex: "#32770" } # IDM
 
+      - window_title: { regex: 'Windowed Projector \(Preview\)' } # Ignore OBS preview window
+
+  - commands: ["set-floating"]
+    match:
+      - window_process: { regex: "obs64" } # Set floating to OBS popups
+
+  - commands: ["set-tiling"]
+    match:
+      - window_process: { regex: "obs64" } # Set tiling to main instance of OBS
+        window_title: { regex: 'OBS [\d.]+.+' }
+
+  - commands: ["move --workspace 3"]
+    match:
+      - window_process: { regex: "Notion" } # Move Notion to workspace 3
+
+  - commands: ["move --workspace 9"]
+    match:
+      - window_process: { regex: "obs64" } # Move OBS to workspace 9
+        window_title: { regex: 'OBS [\d.]+.+' }
+
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
