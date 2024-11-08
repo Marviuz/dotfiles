@@ -13,6 +13,8 @@ Install this things first (scoop)
   - `wezterm-nightly`
 - winget
   - `winget install GlazeWM`
+- for Arch (BTW)
+  - `xclip` - working in synced clipboards
 
 ## To save space (fr fr it takes up space to my 250gb ssd)
 

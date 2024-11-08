@@ -3,13 +3,16 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.default_prog = { "pwsh.exe" }
-config.font = wezterm.font("GeistMono Nerd Font")
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "pwsh.exe" }
+end
+
+config.font = wezterm.font("Geist Mono Nerd Font")
 config.default_cursor_style = "BlinkingBar"
 config.background = {
 	{
 		source = {
-			File = wezterm.home_dir .. "\\.config\\wezterm\\assets\\wallpaper.png",
+			File = wezterm.home_dir .. "/.config/wezterm/assets/wallpaper.png",
 		},
 		horizontal_align = "Center",
 		vertical_align = "Middle",

@@ -102,6 +102,15 @@ return {
 				})
 			end,
 			["ts_ls"] = function()
+				local function remove_unused_imports()
+					local params = {
+						command = "_typescript.removeUnusedImports",
+						arguments = { vim.api.nvim_buf_get_name(0) },
+						title = "",
+					}
+					vim.lsp.buf.execute_command(params)
+				end
+
 				local function organize_imports()
 					local params = {
 						command = "_typescript.organizeImports",
@@ -118,6 +127,10 @@ return {
 							organize_imports,
 							description = "Organize Imports",
 						},
+						RemoveUnusedImports = {
+							remove_unused_imports,
+							description = "Remove Unused Imports",
+						},
 					},
 					filetypes = {
 						"typescriptreact",
@@ -128,6 +141,7 @@ return {
 					},
 				})
 
+				map("n", "<leader>rui", "<cmd>RemoveUnusedImports<CR>", { desc = "Remove unused imports" })
 				map("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
 			end,
 			["tailwindcss"] = function()

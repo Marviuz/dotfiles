@@ -10,7 +10,7 @@ if vim.fn.has("win32") then
 	end
 end
 
-vim.api.nvim_exec("language en_US", true)
+vim.cmd("language en_US.UTF-8")
 
 vim.loader.enable()
 
