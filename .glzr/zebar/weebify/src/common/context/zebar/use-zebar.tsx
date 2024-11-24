@@ -10,6 +10,7 @@ export const providers = zebar.createProviderGroup({
   day: { type: "date", formatting: "EEE" },
   memory: { type: "memory" },
   weather: { type: "weather" },
+  battery: { type: "battery" },
 });
 
 export const zebarContext = createContext<

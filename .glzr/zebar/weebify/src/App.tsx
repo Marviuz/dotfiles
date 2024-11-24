@@ -1,5 +1,6 @@
 import { ReactQueryProvider } from "./common/context/react-query";
 import { ZebarProvider } from "./common/context/zebar/provider";
+import { BatteryMonitor } from "./features/BatteryMonitor/components";
 import { CpuMonitor } from "./features/CpuMonitor/components";
 import { MemoryMonitor } from "./features/MemoryMonitor/components";
 import { NetworkMonitor } from "./features/NetworkMonitor/components";
@@ -37,6 +38,9 @@ function App() {
                   <WeatherMonitor />
                 </WidgetContainer>
                 <DateTimeMonitor />
+                <WidgetContainer>
+                  <BatteryMonitor />
+                </WidgetContainer>
               </div>
             </div>
           </div>
