@@ -8,9 +8,10 @@ Install this things first (scoop)
   - `fzf`
   - `ripgrep`
   - `fd`
-  - `nvm`
-    - then install node via `nvm`
+  - `fnm`
   - `wezterm-nightly`
+  - `starship`
+  - `zoxide`
 - winget
   - `winget install GlazeWM`
 
@@ -30,6 +31,9 @@ New-Item -ItemType SymbolicLink -Path "C:\Users\<USER>\AppData\Local\<DIRECTORY>
 
 # Glaze window manager
 ~/.glzr
+
+# Starship
+~/.config/starship.toml
 ```
 
 _Note: Also create symlink for `nvim-data`_
