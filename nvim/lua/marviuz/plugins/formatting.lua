@@ -35,7 +35,5 @@ return {
 				timeout_ms = 10000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
-
-		map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
 	end,
 }

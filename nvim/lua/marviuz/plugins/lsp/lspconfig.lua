@@ -100,6 +100,8 @@ return {
 						}
 					end,
 				})
+
+				map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
 			end,
 			["ts_ls"] = function()
 				local function organize_imports()
