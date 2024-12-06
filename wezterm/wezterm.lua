@@ -3,6 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
+config.enable_scroll_bar = true
 config.default_prog = { "pwsh.exe" }
 config.font = wezterm.font("GeistMono Nerd Font")
 config.default_cursor_style = "BlinkingBar"
