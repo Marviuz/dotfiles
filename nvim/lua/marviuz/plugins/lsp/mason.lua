@@ -2,8 +2,12 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			build = ":MasonToolsInstall",
+		},
 	},
+	build = ":MasonUpdate",
 	config = function()
 		-- import mason
 		local mason = require("mason")
