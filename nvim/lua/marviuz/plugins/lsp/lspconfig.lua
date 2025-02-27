@@ -148,9 +148,11 @@ return {
 				})
 			end,
 			["mdx_analyzer"] = function()
-				local function get_typescript_server_path(root_dir)
-					local project_root = util.find_node_modules_ancestor(root_dir)
-					return project_root and (util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
+				local function get_typescript_server_path(_root_dir)
+					-- local project_root = util.find_node_modules_ancestor(root_dir)
+					local project_root = vim.fs.dirname(vim.fs.find("node_modules", { path = "./", upward = true })[1])
+					-- return project_root and (util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
+					return project_root and (table.concat({ "path1", "path2" })) or ""
 				end
 				lspconfig["mdx_analyzer"].setup({
 					capabilities = capabilities,
