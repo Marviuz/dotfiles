@@ -4,3 +4,4 @@ tmux/plugins/*
 configstore
 nextjs-nodejs
 .env*
+.glzr/**/tmp*
