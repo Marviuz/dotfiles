@@ -21,11 +21,11 @@ return {
 				["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 10000,
-			},
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- 	timeout_ms = 10000,
+			-- },
 		})
 
 		map({ "n", "v" }, "<leader>mp", function()
