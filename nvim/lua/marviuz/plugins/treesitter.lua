@@ -8,6 +8,7 @@ return {
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 		local auto_tag = require("nvim-ts-autotag")
+
 		treesitter.setup({
 			highlight = {
 				enable = true,
@@ -47,8 +48,10 @@ return {
 
 		vim.filetype.add({
 			extension = {
-				mdx = "markdown.mdx",
+				mdx = "mdx",
 			},
 		})
+
+		vim.treesitter.language.register("markdown", "mdx")
 	end,
 }

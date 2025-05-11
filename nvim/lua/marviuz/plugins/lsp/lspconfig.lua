@@ -7,26 +7,18 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-		local util = require("lspconfig.util")
 
-		-- import mason_lspconfig plugin
-		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+		local servers = require("marviuz.utils.servers")
 		local map = require("marviuz.utils.map")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				-- Buffer local mappings.
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local opts = { buffer = ev.buf, silent = true }
 
-				-- set keybinds
 				opts.desc = "Show LSP references"
 				map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
@@ -58,10 +50,14 @@ return {
 				-- map("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 				opts.desc = "Go to previous diagnostic"
-				map("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+				map("n", "[d", function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end, opts) -- jump to previous diagnostic in buffer
 
 				opts.desc = "Go to next diagnostic"
-				map("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+				map("n", "]d", function()
+					vim.diagnostic.jump({ count = 1, float = true })
+				end, opts) -- jump to next diagnostic in buffer
 
 				-- Use Lspsaga to hover
 				-- opts.desc = "Show documentation for what is under cursor"
@@ -72,141 +68,39 @@ return {
 			end,
 		})
 
-		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			-- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = signs.Error,
+						[vim.diagnostic.severity.WARN] = signs.Warn,
+						[vim.diagnostic.severity.INFO] = signs.Info,
+						[vim.diagnostic.severity.HINT] = signs.Hint,
+					},
+				},
+			})
 		end
 
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["eslint"] = function()
-				lspconfig["eslint"].setup({
-					capabilities = capabilities,
-					on_new_config = function(config, new_root_dir)
-						config.settings.workspaceFolder = {
-							uri = vim.uri_from_fname(new_root_dir),
-							name = vim.fn.fnamemodify(new_root_dir, ":t"),
-						}
-					end,
-				})
-
-				map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
-			end,
-			["ts_ls"] = function()
-				local function organize_imports()
-					local params = {
-						command = "_typescript.organizeImports",
-						arguments = { vim.api.nvim_buf_get_name(0) },
-						title = "",
-					}
-					vim.lsp.buf.execute_command(params)
-				end
-
-				lspconfig["ts_ls"].setup({
-					capabilities = capabilities,
-					commands = {
-						OrganizeImports = {
-							organize_imports,
-							description = "Organize Imports",
-						},
-					},
-					filetypes = {
-						"typescriptreact",
-						"javascriptreact",
-						"typescript",
-						"javascript",
-						"markdown.mdx",
-					},
-				})
-
-				map("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
-			end,
-			["tailwindcss"] = function()
-				lspconfig["tailwindcss"].setup({
-					capabilities = capabilities,
-					settings = {
-						tailwindCSS = {
-							experimental = {
-								classRegex = {
-									{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-									{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-								},
-							},
-						},
-					},
-				})
-			end,
-			["mdx_analyzer"] = function()
-				local function get_typescript_server_path(_root_dir)
-					-- local project_root = util.find_node_modules_ancestor(root_dir)
-					local project_root = vim.fs.dirname(vim.fs.find("node_modules", { path = "./", upward = true })[1])
-					-- return project_root and (util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
-					return project_root and (table.concat({ "path1", "path2" })) or ""
-				end
-				lspconfig["mdx_analyzer"].setup({
-					capabilities = capabilities,
-					filetypes = { "markdown.mdx", "mdx" },
-					init_options = {
-						typescript = {},
-					},
-					on_new_config = function(new_config, new_root_dir)
-						if
-							vim.tbl_get(new_config.init_options, "typescript")
-							and not new_config.init_options.typescript.sdk
-						then
-							new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-						end
-					end,
-				})
-			end,
-			["emmet_ls"] = function()
-				-- configure emmet language server
-				lspconfig["emmet_ls"].setup({
-					capabilities = capabilities,
-					filetypes = {
-						"html",
-						"typescriptreact",
-						"javascriptreact",
-						"css",
-						"sass",
-						"scss",
-						"less",
-						"svelte",
-					},
-				})
-			end,
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				})
-			end,
+		vim.lsp.config("*", {
+			capabilities = capabilities,
 		})
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
+		for name, config in pairs(servers) do
+			lspconfig[name].setup(config)
+			if config.setup_extra then
+				config.setup_extra()
+			end
+		end
+
+		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		-- 	border = "rounded",
+		-- })
+
+		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover
 	end,
 }

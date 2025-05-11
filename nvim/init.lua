@@ -2,7 +2,6 @@
 -- @link https://youtu.be/ZqPpBfiX9ws?t=166
 if vim.fn.has("win32") then
 	local og_fnameescape = vim.fn.fnameescape
-
 	---@diagnostic disable-next-line: duplicate-set-field
 	vim.fn.fnameescape = function(...)
 		local result = og_fnameescape(...)
@@ -10,7 +9,7 @@ if vim.fn.has("win32") then
 	end
 end
 
-vim.api.nvim_exec("language en_US", true)
+-- vim.api.nvim_exec2("language en_US", true)
 
 vim.loader.enable()
 

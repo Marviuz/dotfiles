@@ -77,9 +77,23 @@ return {
 		})
 
 		map("n", "<leader>a", function()
+			-- harpoon:list():add()
+			-- vim.notify("Added to harpoon")
+			local harpoon_list = harpoon:list()
+
+			if #harpoon_list.items >= 4 then
+				table.remove(harpoon_list.items, 1)
+			end
+
+			harpoon_list:add()
+			vim.notify("Added to Harpoon (max 4 items)")
+		end, { desc = "Add to harpoon" })
+
+		map("n", "<leader>fa", function()
 			harpoon:list():add()
 			vim.notify("Added to harpoon")
-		end, { desc = "Add to harpoon" })
+		end, { desc = "Add to forcefully harpoon" })
+
 		map("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, { desc = "Harpoon quick menu" })
@@ -94,6 +108,7 @@ return {
 		map("n", "<C-S-,>", function()
 			harpoon:list():prev()
 		end)
+
 		map("n", "<C-S-.>", function()
 			harpoon:list():next()
 		end)

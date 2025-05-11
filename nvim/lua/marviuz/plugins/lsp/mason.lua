@@ -1,7 +1,7 @@
 return {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		{
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			build = ":MasonToolsInstall",
@@ -9,15 +9,10 @@ return {
 	},
 	build = ":MasonUpdate",
 	config = function()
-		-- import mason
 		local mason = require("mason")
-
-		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
-
 		local mason_tool_installer = require("mason-tool-installer")
 
-		-- enable mason and configure icons
 		mason.setup({
 			ui = {
 				icons = {
@@ -29,7 +24,7 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			-- list of servers for mason to install
+			automatic_enable = false, -- Let nvim-lspconfig automatic enable lsp servers
 			ensure_installed = {
 				"ts_ls",
 				"html",
@@ -45,11 +40,10 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettierd", -- prettier formatter
-				-- "prettier",
-				"stylua", -- lua formatter
-				-- "eslint_d", -- default formatting
-				"eslint", -- for code_actions
+				"prettierd",
+				"stylua",
+				-- "eslint_d", -- faster but no code actions
+				"eslint",
 				"jsonls",
 			},
 		})
