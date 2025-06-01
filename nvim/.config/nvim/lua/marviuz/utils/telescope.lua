@@ -1,9 +1,7 @@
 local M = {}
 
--- Optimized for nextJS development
 M.select_find_command = function()
 	local executable = vim.fn.executable
-	-- deps and build directories
 	local exclude_patterns = "!{.git/*,.next/*,**/node_modules/*,**/vendor/*,.turbo/*,build/*,out/*}"
 
 	local rg_command = {
