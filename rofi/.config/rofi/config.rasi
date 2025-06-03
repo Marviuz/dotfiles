@@ -1,0 +1,3 @@
+configuration {
+    combi-modes: [ "window", "drun", "run" ];
+}
