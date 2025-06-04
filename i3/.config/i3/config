@@ -19,7 +19,11 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:GeistMonoNerdFontMono 14
 
+# Remove borders
 for_window [class="^.*"] border none
+
+# Notifications
+exec --no-startup-id dunst
 
 # kill any hanging polybar processes
 exec_always killall polybar
@@ -60,6 +64,12 @@ tiling_drag modifier titlebar
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec ghostty
+
+# Open file manager
+bindsym $mod+e exec nautilus
+
+# Screenshots
+bindsym $mod+Shift+s exec flameshot gui
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -109,7 +119,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
