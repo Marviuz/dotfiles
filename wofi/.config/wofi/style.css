@@ -1,9 +1,9 @@
-@define-color white       #ffffff;
-@define-color light-gray  #d0d0d0;
-@define-color gray        #a0a0a0;
-@define-color dark-gray   #707070;
-@define-color darker-gray #404040;
-@define-color black       #1a1a1a;
+@define-color white       rgba(255, 255, 255, 1.0);
+@define-color light-gray  rgba(210, 210, 220, 1.0);
+@define-color gray        rgba(160, 160, 175, 1.0);
+@define-color dark-gray   rgba(110, 110, 125, 1.0);
+@define-color darker-gray rgba(70, 70, 85, 1.0);
+@define-color black       rgba(25, 27, 40, 0.95);
 
 @define-color text        @light-gray;
 @define-color subtext1    @gray;
@@ -12,59 +12,90 @@
 @define-color overlay1    @darker-gray;
 @define-color overlay0    @black;
 
-@define-color surface2    @darker-gray;
-@define-color surface1    @black;
-@define-color surface0    @black;
-@define-color base        @black;
-@define-color mantle      @black;
-@define-color crust       #0f0f0f;
+@define-color surface2    rgba(50, 50, 60, 0.92);
+@define-color surface1    rgba(40, 40, 50, 0.94);
+@define-color surface0    rgba(30, 30, 45, 0.96);
+@define-color base        rgba(25, 25, 40, 0.97);
+@define-color mantle      rgba(20, 20, 35, 0.98);
+@define-color crust       rgba(15, 15, 30, 0.96);
 
 * {
-  font-family: 'GeistMono Nerd Font Mono', monospace;
-  font-size: 18px;
+  font-family: "GeistMono Nerd Font Mono", monospace;
+  font-size: 14px;
 }
 
-/* Window */
 window {
-  margin: 0px;
-  padding: 10px;
+  margin: 10px;
+  padding: 18px;
   border: 2px solid @gray;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: @base;
 }
 
-/* Inner Box */
-#inner-box {
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  background-color: @base;
-}
-
-/* Outer Box */
 #outer-box {
   margin: 5px;
-  padding: 10px;
+  padding: 14px;
   border: none;
-  background-color: @base;
+  border-radius: 16px;
+  background-color: @surface1;
 }
 
-/* Scroll */
+#inner-box {
+  margin: 5px;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background-color: @surface0;
+}
+
 #scroll {
   margin: 0px;
   padding: 10px;
   border: none;
-  background-color: @base;
+  border-radius: 12px;
+  background-color: @surface0;
+  overflow-y: auto;
 }
 
-/* Input */
+#entry {
+  border-radius: 12px;
+  background-color: @surface1;
+  padding: 10px 16px;
+  margin: 6px 0;
+  user-select: none;
+}
+
+#entry arrow {
+  border: none;
+  color: @light-gray;
+}
+
+#entry:selected {
+  border: 2px solid @gray;
+  background-color: rgba(160, 160, 175, 0.2);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 6px 0;
+}
+
+#entry:selected #text {
+  color: @white;
+}
+
+#entry:drop(active) {
+  background-color: rgba(160, 160, 175, 0.25) !important;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 6px 0;
+}
+
 #input {
   margin: 5px 20px;
-  padding: 10px;
+  padding: 14px;
   border: none;
-  border-radius: 0.1em;
+  border-radius: 12px;
   color: @text;
-  background-color: @base;
+  background-color: @mantle;
 }
 
 #input image {
@@ -73,34 +104,11 @@ window {
 }
 
 #input * {
-  outline: 4px solid @gray!important;
+  outline: 2px solid @gray !important;
 }
 
-/* Text */
 #text {
   margin: 5px;
   border: none;
   color: @text;
-}
-
-#entry {
-  background-color: @base;
-}
-
-#entry arrow {
-  border: none;
-  color: @light-gray;
-}
-
-/* Selected Entry */
-#entry:selected {
-  border: 0.11em solid @gray;
-}
-
-#entry:selected #text {
-  color: @white;
-}
-
-#entry:drop(active) {
-  background-color: @gray!important;
 }
