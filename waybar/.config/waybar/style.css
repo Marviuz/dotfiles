@@ -1,0 +1,86 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "GeistMono Nerd Font Mono", monospace;
+  font-size: 14px;
+  min-height: 0;
+  color: @white;
+}
+
+window#waybar {
+  background: transparent;
+  color: @white;
+}
+
+#window {
+  font-weight: bold;
+  font-family: "GeistMono Nerd Font Mono", monospace;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding-right: 2px;
+  background: transparent;
+  color: @workspace-default-color;
+  border-top: 2px solid transparent;
+  margin-right: 8px;
+}
+
+#workspaces button.focused {
+  color: @workspace-active-color;
+  border-top: 2px solid @workspace-active-color;
+}
+
+/* Mode */
+#mode {
+  background: @mode-bg;
+  border-bottom: 3px solid @mode-border;
+}
+
+/* Common modules spacing */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#mode {
+  padding: 0 2px;
+  margin: 0 8px;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+/* Battery */
+#battery icon {
+  color: @battery-icon-color;
+}
+
+#battery.warning:not(.charging) {
+  color: @battery-warning-color;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: @battery-warning-blink-bg;
+    color: @battery-warning-blink-fg;
+  }
+}
+
+/* Network */
+#network.disconnected {
+  background: @network-disconnected-bg;
+}
+
+/* Spotify */
+#custom-spotify {
+  color: @spotify-color;
+}

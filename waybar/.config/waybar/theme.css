@@ -1,0 +1,17 @@
+@define-color white #ffffff;
+@define-color black #000000;
+
+@define-color workspace-default-color white;
+@define-color workspace-active-color #c9545d;
+
+@define-color mode-bg #64727d;
+@define-color mode-border white;
+
+@define-color battery-icon-color red;
+@define-color battery-warning-color white;
+@define-color battery-warning-blink-bg #ffffff;
+@define-color battery-warning-blink-fg black;
+
+@define-color network-disconnected-bg #f53c3c;
+
+@define-color spotify-color rgb(102, 220, 105);
