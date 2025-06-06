@@ -100,6 +100,7 @@ local servers = {
 	},
 
 	volar = {},
+  angularls = {},
 	intelephense = {
 		filetypes = { "php" },
 	},
