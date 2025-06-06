@@ -26,6 +26,8 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+autoload -Uz compinit && compinit
+
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
