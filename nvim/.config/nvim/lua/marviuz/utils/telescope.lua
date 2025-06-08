@@ -1,8 +1,19 @@
 local M = {}
 
+M.excludes = {
+	".git/*",
+	".next/*",
+	"**/node_modules/*",
+	"**/vendor/*",
+	".turbo/*",
+	"build/*",
+	"out/*",
+}
+
+M.exclude_patterns = "!{" .. table.concat(M.excludes, ",") .. "}"
+
 M.select_find_command = function()
 	local executable = vim.fn.executable
-	local exclude_patterns = "!{.git/*,.next/*,**/node_modules/*,**/vendor/*,.turbo/*,build/*,out/*}"
 
 	local rg_command = {
 		initial_mode = "insert",
@@ -19,7 +30,7 @@ M.select_find_command = function()
 			"--hidden",
 			"--glob",
 			-- "!{.git/*,.next/*,node_modules/*}",
-			exclude_patterns,
+			M.exclude_patterns,
 			"--path-separator",
 			"/",
 		},
@@ -37,7 +48,7 @@ M.select_find_command = function()
 			"lua/**/user/*",
 			"--exclude",
 			-- "!{.git/*,.next/*,node_modules/*}",
-			exclude_patterns,
+			M.exclude_patterns,
 		},
 	}
 

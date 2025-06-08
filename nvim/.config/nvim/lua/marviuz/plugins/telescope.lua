@@ -10,17 +10,19 @@ return {
 		"nvim-telescope/telescope-project.nvim",
 		"albenisolmos/telescope-oil.nvim",
 		{ "echasnovski/mini.pick", version = "*" },
+		"folke/snacks.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local map = require("marviuz.utils.map")
 		local telescope_util = require("marviuz.utils.telescope")
-    
-    -- Alternative to Telescope because some files opened by telescope are false mistake
-		local mini_pick = require("mini.pick")
-    mini_pick.setup()
-    map("n", "<leader>fmp", "<cmd>Pick files<cr>", { desc = "Open fines using mini.pick" })
+		local Snacks = require("snacks")
+
+		-- Alternative to Telescope because some files opened by telescope are false mistake
+		-- map("n", "<leader>fmp", function()
+		-- 	Snacks.picker.files()
+		-- end, { desc = "Open fines using mini.pick" })
 
 		telescope.setup({
 			pickers = {
@@ -60,7 +62,18 @@ return {
 		telescope.load_extension("file_browser")
 		telescope.load_extension("oil")
 
-		map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		-- map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+
+		-- Experimental - looks better with double brackets
+		map("n", "<leader>ff", function()
+			Snacks.picker.files({
+				hidden = true,
+				ignored = true,
+				exclude = telescope_util.excludes,
+				auto_close = false,
+			})
+		end, { desc = "Open fines using mini.pick" })
+
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
