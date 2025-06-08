@@ -26,7 +26,7 @@ window#waybar {
   margin-right: 8px;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   color: @workspace-active-color;
   border-top: 2px solid @workspace-active-color;
 }
@@ -46,7 +46,7 @@ window#waybar {
 #pulseaudio,
 #tray,
 #mode {
-  padding: 0 2px;
+  padding: 0 8px;
   margin: 0 8px;
 }
 
