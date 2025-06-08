@@ -4,27 +4,29 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		-- "nvim-tree/nvim-web-devicons",
 		{ "echasnovski/mini.icons", version = "*" },
 		"folke/todo-comments.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
 		"nvim-telescope/telescope-project.nvim",
 		"albenisolmos/telescope-oil.nvim",
+		{ "echasnovski/mini.pick", version = "*" },
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local map = require("marviuz.utils.map")
 		local telescope_util = require("marviuz.utils.telescope")
+    
+    -- Alternative to Telescope because some files opened by telescope are false mistake
+		local mini_pick = require("mini.pick")
+    mini_pick.setup()
+    map("n", "<leader>fmp", "<cmd>Pick files<cr>", { desc = "Open fines using mini.pick" })
 
 		telescope.setup({
 			pickers = {
 				find_files = telescope_util.select_find_command(),
 			},
 			defaults = {
-				layout_config = {
-					prompt_position = "top",
-				},
 				sorting_strategy = "ascending",
 				path_display = { "smart" },
 				mappings = {
