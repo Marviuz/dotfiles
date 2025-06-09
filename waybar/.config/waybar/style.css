@@ -46,7 +46,7 @@ window#waybar {
 #pulseaudio,
 #tray,
 #mode,
-#custom-spacing {
+#custom-opacity {
   padding: 0 8px;
   margin: 0 8px;
 }
