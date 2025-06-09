@@ -23,6 +23,7 @@ return {
 				markdown = { "prettierd", "prettier", stop_after_first = true },
 				mdx = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
+        vue = { "prettierd", "prettier", stop_after_first = true },
 				php = { "phpcbf" }, -- or "php_cs_fixer"
 			},
 			-- format_on_save = {

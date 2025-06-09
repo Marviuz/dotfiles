@@ -99,8 +99,12 @@ local servers = {
 		},
 	},
 
-	volar = {},
-  angularls = {},
+	vue_ls = {
+		filetypes = {
+			"vue",
+		},
+	},
+	angularls = {},
 	intelephense = {
 		filetypes = { "php" },
 	},

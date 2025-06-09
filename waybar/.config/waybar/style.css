@@ -45,7 +45,8 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray,
-#mode {
+#mode,
+#custom-spacing {
   padding: 0 8px;
   margin: 0 8px;
 }
