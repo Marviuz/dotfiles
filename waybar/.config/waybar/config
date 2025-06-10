@@ -70,7 +70,6 @@
         "on-click": "pavucontrol"
     },
     "custom/opacity": {
-      "exec": "~/.config/waybar/hyprland_opacity_preview.sh",
       "on-click": "~/.config/waybar/hyprland_opacity_toggle.sh",
       "format": "Opacity ",
     }
