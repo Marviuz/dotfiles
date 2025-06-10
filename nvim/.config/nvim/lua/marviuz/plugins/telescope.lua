@@ -72,21 +72,29 @@ return {
 				hidden = true,
 				ignored = true,
 				exclude = telescope_util.excludes,
-				auto_close = false,
+				auto_close = true,
 			})
-		end, { desc = "Open files using mini.pick" })
+		end, { desc = "Open files using snacks" })
 
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 
 		-- map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		map("n", "<leader>fs", function()
 			Snacks.picker.grep({
+				win = {
+					input = {
+						keys = {
+							["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+							["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+						},
+					},
+				},
 				hidden = true,
 				ignored = true,
 				exclude = telescope_util.excludes,
-				auto_close = false,
+				auto_close = true,
 			})
-		end, { desc = "Grep using mini.pick" })
+		end, { desc = "Grep using snacks" })
 
 		map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
