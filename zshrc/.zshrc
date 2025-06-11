@@ -33,4 +33,10 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 
-bindkey -s '^f' 'eval $(~/find_project.sh)\n'
+function find_project_widget() {
+  eval "$(~/find_project.sh)"
+  zle reset-prompt
+}
+zle -N find_project_widget
+
+bindkey '^f' find_project_widget

@@ -102,6 +102,11 @@ return {
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		map("n", "<leader>ub", telescope_util.unsaved_buffers, { desc = "View unsaved buffers" })
+		-- map("n", "<leader>ub", function()
+		-- 	require("snacks.picker")({
+		-- 		source = function() end,
+		-- 	})
+		-- end, { desc = "View unsaved buffers" })
 		map("n", "<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", { desc = "Browse projects" })
 
 		map(
