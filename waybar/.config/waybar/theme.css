@@ -2,7 +2,8 @@
 @define-color black #000000;
 
 @define-color workspace-default-color white;
-@define-color workspace-active-color #c9545d;
+@define-color workspace-active-color white;
+@define-color workspace-urgent-color #c9545d;
 
 @define-color mode-bg #64727d;
 @define-color mode-border white;

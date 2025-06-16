@@ -1,3 +1,5 @@
+@import "./theme.css";
+
 * {
   border: none;
   border-radius: 0;
@@ -27,8 +29,19 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @workspace-active-color;
   border-top: 2px solid @workspace-active-color;
+}
+
+#workspaces button.active label {
+  color: @workspace-active-color;
+}
+
+#workspaces button.urgent {
+  border-top: 2px solid @workspace-urgent-color;
+}
+
+#workspaces button.urgent label {
+  color: @workspace-urgent-color;
 }
 
 /* Mode */
@@ -46,9 +59,12 @@ window#waybar {
 #pulseaudio,
 #tray,
 #mode,
-#custom-opacity {
-  padding: 0 8px;
+#custom-opacity,
+#custom-power {
+  padding: 0 12px;
   margin: 0 8px;
+  border: 1px solid @workspace-default-color;
+  border-radius: 9999;
 }
 
 #clock {
@@ -79,9 +95,4 @@ window#waybar {
 /* Network */
 #network.disconnected {
   background: @network-disconnected-bg;
-}
-
-/* Spotify */
-#custom-spotify {
-  color: @spotify-color;
 }

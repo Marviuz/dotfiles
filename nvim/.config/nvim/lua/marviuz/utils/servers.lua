@@ -54,6 +54,7 @@ local servers = {
 			"typescript",
 			"javascript",
 			"mdx",
+			"vue",
 		},
 		setup_extra = function()
 			map("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })

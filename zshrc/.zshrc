@@ -26,7 +26,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit; compinit
 
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
@@ -40,3 +40,4 @@ function find_project_widget() {
 zle -N find_project_widget
 
 bindkey '^f' find_project_widget
+bindkey '^w' kill-region
