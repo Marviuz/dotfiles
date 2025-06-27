@@ -3,44 +3,52 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Symbols Nerd Font", "Noto Sans", sans-serif;
   font-size: 14px;
   min-height: 0;
   color: @white;
+  transition: all 0.2s ease-in-out;
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   color: @white;
+  border-radius: 10px;
+  padding: 6px 10px;
+  margin: 6px;
 }
 
 #window {
-  font-weight: bold;
-  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-family: "Symbols Nerd Font", "Noto Sans", sans-serif;
 }
 
 /* Workspaces */
+#workspaces {
+  margin: 0 6px;
+}
+
 #workspaces button {
-  padding-right: 2px;
+  padding: 4px 10px;
+  margin-right: 6px;
   background: transparent;
   color: @workspace-default-color;
-  border-top: 2px solid transparent;
-  margin-right: 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 #workspaces button.active {
-  border-top: 2px solid @workspace-active-color;
-}
-
-#workspaces button.active label {
+  background-color: @workspace-active-bg;
   color: @workspace-active-color;
+  font-weight: bold;
 }
 
 #workspaces button.urgent {
-  border-top: 2px solid @workspace-urgent-color;
-}
-
-#workspaces button.urgent label {
+  background-color: @workspace-urgent-bg;
   color: @workspace-urgent-color;
 }
 
@@ -48,55 +56,46 @@ window#waybar {
 #mode {
   background: @mode-bg;
   border-bottom: 3px solid @mode-border;
+  padding: 4px 12px;
+  border-radius: 6px;
 }
 
-/* Common modules spacing */
+/* Common module styling */
 #clock,
-#battery,
+/* #battery, */
+/* #cpu, */
+/* #memory, */
+/* #network, */
+/* #pulseaudio, */
+/* #tray, */
+/* #custom-notification, */
+#audio,
+#systemcenter,
+#mode,
+#custom-opacity,
+#custom-power,
+#sys,
+#power {
+  padding: 0 12px;
+  margin: 0 6px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
 #cpu,
 #memory,
 #network,
-#pulseaudio,
-#tray,
-#mode,
-#custom-opacity,
-#custom-power {
-  padding: 0 12px;
-  margin: 0 8px;
-  border: 1px solid @workspace-default-color;
-  border-radius: 9999;
-}
-
-#tray menu {
-  border: 1px solid @menu-hover-bg;
-  border-radius: 6px;
-  padding: 4px; /* Optional: Adds space between border and items */
-}
-
-#tray menu *:disabled,
-#tray menu *.insensitive {
-  color: @menu-disabled-fg;
-  background-color: transparent;
-}
-
-/* Tray Menu Dark Theme */
-#tray menu,
-#tray menu menuitem {
-  background-color: @black;
-  color: @white;
-}
-
-/* Hovered/Selected Tray Menu Item */
-#tray menu menuitem:hover,
-#tray menu menuitem:active,
-#tray menu menuitem:selected,
-#tray menu menuitem:focus {
-  background-color: @menu-hover-bg;
-  color: @white;
+#pulseaudio.input,
+#custom-lock,
+#custom-logout,
+#custom-reboot {
+  margin-right: 12px;
 }
 
 #clock {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* Battery */
@@ -106,11 +105,7 @@ window#waybar {
 
 #battery.warning:not(.charging) {
   color: @battery-warning-color;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
@@ -123,4 +118,38 @@ window#waybar {
 /* Network */
 #network.disconnected {
   background: @network-disconnected-bg;
+}
+
+#tray {
+  margin-right: 12px;
+}
+
+/* Tray styling */
+#tray menu {
+  border: 1px solid @menu-hover-bg;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#tray menu *:disabled,
+#tray menu *.insensitive {
+  color: @menu-disabled-fg;
+  background-color: transparent;
+}
+
+#tray menu menuitem {
+  background-color: transparent;
+  color: @white;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+#tray menu menuitem:hover,
+#tray menu menuitem:active,
+#tray menu menuitem:selected,
+#tray menu menuitem:focus {
+  background-color: @menu-hover-bg;
+  color: @white;
 }

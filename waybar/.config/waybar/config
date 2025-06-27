@@ -1,80 +1,191 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 32, // Waybar height
-    // "width": 1366, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/opacity", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock", "custom/power"],
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{icon} {name}",
-        "format-icons": {
-            "urgent": "",
-            "default": "○",
-            "active": "●"
-        }
-    },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%b %e, %Y | %I:%M %p}",
-        "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}",
-    },
-    "cpu": {
-        "format": "{usage}% ",
-    },
-    "memory": {
-        "format": "{}% ",
-        "tooltip-format": "{}% RAM used"
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{signalStrength}% ",
-        "tooltip-format-wifi": "{essid} {signalStrength}% ",
-        "format-ethernet": "{ifname}: {cidr} ",
-        "format-disconnected": "Disconnected ⚠"
-    },
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/opacity": {
-      "on-click": "~/.config/waybar/hyprland_opacity_toggle.sh",
-      "format": "Opacity ",
-    },
-    "custom/power": {
-        "on-click": "wlogout --layout ~/.config/wlogout/config",
-        "format": "",
+  // ─────────────────────────────────────────────────────────────
+  // Waybar General Settings
+  // ─────────────────────────────────────────────────────────────
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+
+  // ─────────────────────────────────────────────────────────────
+  // Module Layout
+  // ─────────────────────────────────────────────────────────────
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "custom/opacity",
+    // "pulseaudio#output",
+    // "pulseaudio#input",
+    "group/audio",
+    // "network",
+    // "cpu",
+    // "memory",
+    "group/sys",
+    // "battery",
+    // "tray",
+    // "custom/notification",
+    "group/systemcenter",
+    "clock",
+    "group/power"
+  ],
+
+  // ─────────────────────────────────────────────────────────────
+  // Workspaces
+  // ─────────────────────────────────────────────────────────────
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{icon} {name}",
+    "format-icons": {
+      "urgent": "",
+      "default": "○",
+      "active": "●"
     }
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // Focused Window
+  // ─────────────────────────────────────────────────────────────
+  "hyprland/window": {
+    // Default config is fine, styling is done in CSS
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // Audio / Volume
+  // ─────────────────────────────────────────────────────────────
+  "pulseaudio#output": {
+    "scroll-step": 5,
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio#input": {
+    "scroll-step": 5,
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",  // microphone-slash
+    "format-icons": {
+      "default": ["", ""]  // microphone icons
+    },
+    "on-click": "pavucontrol"  },
+
+  // ─────────────────────────────────────────────────────────────
+  // System Stats
+  // ─────────────────────────────────────────────────────────────
+  "cpu": {
+    "format": "{usage}% "
+  },
+
+  "memory": {
+    "format": "{}% ",
+    "tooltip-format": "{}% RAM used"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "network": {
+    "format-wifi": "{signalStrength}% ",
+    "tooltip-format-wifi": "{essid} {signalStrength}% ",
+    "format-ethernet": "{ifname}: {cidr} ",
+    "format-disconnected": "Disconnected ⚠"
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // Tray & Notifications
+  // ─────────────────────────────────────────────────────────────
+  "tray": {
+    "spacing": 10
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // Clock
+  // ─────────────────────────────────────────────────────────────
+  "clock": {
+    "format": "{:%b %e, %Y | %I:%M %p}",
+    "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}"
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // Custom Modules
+  // ─────────────────────────────────────────────────────────────
+  "custom/opacity": {
+    "on-click": "~/.config/waybar/hyprland_opacity_toggle.sh",
+    "format": "Opacity ●"
+  },
+
+  "group/sys": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "network", "battery"]
+  },
+
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": ["custom/lock", "custom/logout", "custom/reboot", "custom/shutdown"]
+  },
+
+  "custom/lock": {
+    "format": "",
+    "tooltip": "Lock",
+    "on-click": "hyprlock"
+  },
+  "custom/logout": {
+    "format": "󰗽",
+    "tooltip": "Logout",
+    "on-click": "hyprctl dispatch exit"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": "Reboot",
+    "on-click": "systemctl reboot"
+  },
+  "custom/shutdown": {
+    "format": "",
+    "tooltip": "Shutdown",
+    "on-click": "systemctl poweroff"
+  },
+  "group/systemcenter": {
+    "orientation": "horizontal",
+    "modules": ["tray", "custom/notification"]
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio#input" ,"pulseaudio#output"]
+  }
 }
