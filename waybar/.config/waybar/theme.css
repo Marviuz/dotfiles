@@ -3,7 +3,8 @@
 
 @define-color workspace-default-color white;
 @define-color workspace-active-color white;
-@define-color workspace-urgent-color #c9545d;
+@define-color workspace-urgent-fg white;
+@define-color workspace-urgent-bg #c9545d;
 
 @define-color menu-hover-bg #2a2f33; /* Soft dark gray for hover background */
 @define-color menu-disabled-fg rgba(255, 255, 255, 0.3);

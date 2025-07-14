@@ -12,7 +12,7 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    "custom/opacity",
+    // "custom/opacity",
     // "pulseaudio#output",
     // "pulseaudio#input",
     "group/audio",
@@ -34,7 +34,7 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{icon} {name}",
+    "format": "{name}: {icon}",
     "format-icons": {
       "urgent": "",
       "default": "○",
@@ -138,7 +138,7 @@
   // Clock
   // ─────────────────────────────────────────────────────────────
   "clock": {
-    "format": "{:%b %e, %Y | %I:%M %p}",
+    "format": "{:%b %e, %Y | %a | %I:%M %p}",
     "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}"
   },
 

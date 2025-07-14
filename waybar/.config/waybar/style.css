@@ -7,7 +7,6 @@
   font-size: 14px;
   min-height: 0;
   color: @white;
-  transition: all 0.2s ease-in-out;
 }
 
 window#waybar {
@@ -34,7 +33,6 @@ window#waybar {
   background: transparent;
   color: @workspace-default-color;
   border-radius: 6px;
-  transition: background 0.2s ease;
 }
 
 #workspaces button:hover {
@@ -49,7 +47,7 @@ window#waybar {
 
 #workspaces button.urgent {
   background-color: @workspace-urgent-bg;
-  color: @workspace-urgent-color;
+  color: @workspace-urgent-fg;
 }
 
 /* Mode */
