@@ -1,4 +1,4 @@
-@import "./theme.css";
+@import "./colors.css";
 
 * {
   border: none;
@@ -6,12 +6,12 @@
   font-family: "Symbols Nerd Font", "Noto Sans", sans-serif;
   font-size: 14px;
   min-height: 0;
-  color: @white;
+  color: @on_surface;
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0.5);
-  color: @white;
+  background-color: transparent;
+  color: @on_surface;
   border-radius: 10px;
   padding: 6px 10px;
   margin: 6px;
@@ -31,7 +31,7 @@ window#waybar {
   padding: 4px 10px;
   margin-right: 6px;
   background: transparent;
-  color: @workspace-default-color;
+  color: @on_surface_variant;
   border-radius: 6px;
 }
 
@@ -40,20 +40,20 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: @workspace-active-bg;
-  color: @workspace-active-color;
+  background-color: @primary_container;
+  color: @on_primary_container;
   font-weight: bold;
 }
 
 #workspaces button.urgent {
-  background-color: @workspace-urgent-bg;
-  color: @workspace-urgent-fg;
+  background-color: @error_container;
+  color: @on_error_container;
 }
 
 /* Mode */
 #mode {
-  background: @mode-bg;
-  border-bottom: 3px solid @mode-border;
+  background: @secondary_container;
+  border-bottom: 3px solid @secondary;
   padding: 4px 12px;
   border-radius: 6px;
 }
@@ -98,33 +98,33 @@ window#waybar {
 
 /* Battery */
 #battery icon {
-  color: @battery-icon-color;
+  color: @tertiary;
 }
 
 #battery.warning:not(.charging) {
-  color: @battery-warning-color;
+  color: @error;
   animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
   to {
-    background-color: @battery-warning-blink-bg;
-    color: @battery-warning-blink-fg;
+    background-color: @error_container;
+    color: @on_error_container;
   }
 }
 
 /* Network */
 #network.disconnected {
-  background: @network-disconnected-bg;
+  background: @error_container;
 }
 
+/* Tray */
 #tray {
   margin-right: 12px;
 }
 
-/* Tray styling */
 #tray menu {
-  border: 1px solid @menu-hover-bg;
+  border: 1px solid @surface_container_high;
   border-radius: 8px;
   padding: 6px;
   background-color: rgba(0, 0, 0, 0.9);
@@ -133,13 +133,13 @@ window#waybar {
 
 #tray menu *:disabled,
 #tray menu *.insensitive {
-  color: @menu-disabled-fg;
+  color: @outline_variant;
   background-color: transparent;
 }
 
 #tray menu menuitem {
   background-color: transparent;
-  color: @white;
+  color: @on_surface;
   padding: 6px 12px;
   border-radius: 4px;
 }
@@ -148,6 +148,6 @@ window#waybar {
 #tray menu menuitem:active,
 #tray menu menuitem:selected,
 #tray menu menuitem:focus {
-  background-color: @menu-hover-bg;
-  color: @white;
+  background-color: @surface_container_high;
+  color: @on_surface;
 }
