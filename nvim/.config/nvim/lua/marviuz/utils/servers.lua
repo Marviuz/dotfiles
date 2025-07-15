@@ -89,7 +89,7 @@ local servers = {
 
 	emmet_ls = {
 		filetypes = {
-      "angularhtml",
+      "htmlangular",
 			"html",
 			"typescriptreact",
 			"javascriptreact",

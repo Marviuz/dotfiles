@@ -1,0 +1,12 @@
+[config]
+
+[config.wallpaper]
+command = "hyprpaper"
+# arguments = ["img", "--transition-type", "center"]
+set = true
+
+[templates.hyprland]
+input_path = '~/.config/hypr/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
