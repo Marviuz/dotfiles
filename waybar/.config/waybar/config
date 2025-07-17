@@ -10,7 +10,7 @@
   // Module Layout
   // ─────────────────────────────────────────────────────────────
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  // "modules-center": ["hyprland/window"],
   "modules-right": [
     // "custom/opacity",
     // "pulseaudio#output",
@@ -45,9 +45,9 @@
   // ─────────────────────────────────────────────────────────────
   // Focused Window
   // ─────────────────────────────────────────────────────────────
-  "hyprland/window": {
-    // Default config is fine, styling is done in CSS
-  },
+  // "hyprland/window": {
+  //   // Default config is fine, styling is done in CSS
+  //},
 
   // ─────────────────────────────────────────────────────────────
   // Audio / Volume
