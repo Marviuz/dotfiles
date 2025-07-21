@@ -12,13 +12,17 @@
 window#waybar {
   background-color: transparent;
   color: @on_surface;
-  border-radius: 10px;
   padding: 6px 10px;
   margin: 6px;
 }
 
-window#waybar > box {
+
+window#waybar.top > box {
   padding: 8px 8px 0;
+}
+
+window#waybar.bottom > box {
+  padding: 0 8px 8px;
 }
 
 #window {
@@ -49,6 +53,7 @@ window#waybar > box {
 #mode,
 #custom-opacity,
 #custom-power,
+#custom-theme-picker,
 #sys,
 #power {
   padding: 0 12px;
