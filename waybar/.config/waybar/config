@@ -164,22 +164,22 @@
 
     "custom/lock": {
       "format": "",
-      "tooltip": "Lock",
+      "tooltip-format": "Lock",
       "on-click": "hyprlock"
     },
     "custom/logout": {
       "format": "󰗽",
-      "tooltip": "Logout",
+      "tooltip-format": "Logout",
       "on-click": "hyprctl dispatch exit"
     },
     "custom/reboot": {
       "format": "󰜉",
-      "tooltip": "Reboot",
+      "tooltip-format": "Reboot",
       "on-click": "systemctl reboot"
     },
     "custom/shutdown": {
       "format": "",
-      "tooltip": "Shutdown",
+      "tooltip-format": "Shutdown",
       "on-click": "systemctl poweroff"
     },
     "group/systemcenter": {
@@ -191,8 +191,8 @@
       "modules": ["pulseaudio#input" ,"pulseaudio#output"]
     },
     "custom/theme-picker": {
-      "format": "🎨",
-      "tooltip": "Theme Picker",
+      "format": "",
+      "tooltip-format": "Theme Picker",
       "on-click": "exec switch-theme"
     }
   }
