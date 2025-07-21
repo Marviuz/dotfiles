@@ -16,7 +16,6 @@ window#waybar {
   margin: 6px;
 }
 
-
 window#waybar.top > box {
   padding: 8px 8px 0;
 }
@@ -35,19 +34,12 @@ window#waybar.bottom > box {
   background: @secondary_container;
   border-bottom: 3px solid @secondary;
   padding: 4px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 /* Common module styling */
 #workspaces,
 #clock,
-/* #battery, */
-/* #cpu, */
-/* #memory, */
-/* #network, */
-/* #pulseaudio, */
-/* #tray, */
-/* #custom-notification, */
 #audio,
 #systemcenter,
 #mode,
@@ -58,10 +50,9 @@ window#waybar.bottom > box {
 #power {
   padding: 0 12px;
   margin: 0 6px;
-  /* background-color: rgba(255, 255, 255, 0.06); */
   background-color: @background;
   border: 1px solid @outline_variant;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -124,7 +115,7 @@ window#waybar.bottom > box {
   background-color: transparent;
   color: @on_background;
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 #tray menu menuitem:hover,
@@ -145,22 +136,26 @@ window#waybar.bottom > box {
   padding: 4px 10px;
   background: transparent;
   color: @on_surface_variant;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-right: 6px;
+  font-weight: bold;
 }
 
 #workspaces button:last-child {
   margin-right: 0;
 }
 
-#workspaces button:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+#workspaces button:not(.active):hover {
+  background-color: @on_primary_container;
+}
+
+#workspaces button:not(.active):hover label {
+  color: @primary_container;
 }
 
 #workspaces button.active {
   background-color: @primary_container;
   color: @on_primary_container;
-  font-weight: bold;
 }
 
 #workspaces button.urgent {
