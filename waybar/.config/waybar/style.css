@@ -53,8 +53,9 @@ window#waybar > box {
 #power {
   padding: 0 12px;
   margin: 0 6px;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* background-color: rgba(255, 255, 255, 0.06); */
+  background-color: @background;
+  border: 1px solid @outline_variant;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
@@ -101,10 +102,10 @@ window#waybar > box {
 }
 
 #tray menu {
-  border: 1px solid @surface_container_high;
+  border: 1px solid @outline_variant;
   border-radius: 8px;
   padding: 6px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: @background;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -116,7 +117,7 @@ window#waybar > box {
 
 #tray menu menuitem {
   background-color: transparent;
-  color: @on_surface;
+  color: @on_background;
   padding: 6px 12px;
   border-radius: 4px;
 }

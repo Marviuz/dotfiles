@@ -1,0 +1,22 @@
+#!/bin/bash
+
+CWD=$(pwd)
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+cd "$WALLPAPER_DIR" || exit
+
+IFS=$'\n'
+
+SELECTED_WALLPAPER=$(
+  find . -type f \( -iname "*.jpg" -o -iname "*.png" \) | while read -r image; do
+    echo -en "${image#./}\0icon\x1f$image\n"
+  done | rofi -dmenu -p ""
+)
+
+if [ -n "$SELECTED_WALLPAPER" ]; then
+  swww img "$WALLPAPER_DIR/$SELECTED_WALLPAPER" --transition-type="center" --transition-step=1 --transition-fps="60"
+  matugen image "$WALLPAPER_DIR/$SELECTED_WALLPAPER"
+fi
+
+cd "$CWD" || exit
