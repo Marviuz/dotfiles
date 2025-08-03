@@ -22,6 +22,30 @@ local colorschemes = {
 			})
 		end,
 	},
+	{
+		name = "Darkvoid",
+		colorscheme = "darkvoid",
+	},
+	{
+		name = "Lackluster - Hack",
+		colorscheme = "lackluster-hack",
+	},
+	{
+		name = "Lackluster - Mint",
+		colorscheme = "lackluster-mint",
+	},
+	{
+		name = "Eidolon - Midnight",
+		colorscheme = "eidolon-midnight",
+	},
+	{
+		name = "Eidolon - Twilight",
+		colorscheme = "eidolon-twilight",
+	},
+	{
+		name = "Eidolon - Dusk",
+		colorscheme = "eidolon-dusk",
+	},
 }
 
 table.sort(colorschemes, function(a, b)
@@ -34,6 +58,10 @@ return {
 		"xiyaowong/transparent.nvim",
 		"olivercederborg/poimandres.nvim",
 		"gmr458/vscode_modern_theme.nvim",
+		"dark-orchid/neovim",
+		"aliqyan-21/darkvoid.nvim",
+		"slugbyte/lackluster.nvim",
+		"Vallen217/eidolon.nvim",
 	},
 	lazy = false,
 	priority = 1000,

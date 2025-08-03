@@ -9,7 +9,7 @@ cd "$WALLPAPER_DIR" || exit
 IFS=$'\n'
 
 SELECTED_WALLPAPER=$(
-  find . -type f \( -iname "*.jpg" -o -iname "*.png" \) | while read -r image; do
+  find . -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | while read -r image; do
     echo -en "${image#./}\0icon\x1f$image\n"
   done | rofi -dmenu -p ""
 )

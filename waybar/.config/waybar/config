@@ -191,9 +191,9 @@
       "modules": ["pulseaudio#input" ,"pulseaudio#output"]
     },
     "custom/theme-picker": {
-      "format": "",
+      "format": "",
       "tooltip-format": "Theme Picker",
-      "on-click": "exec switch-theme"
+      "on-click": "~/.local/bin/switch-theme"
     }
   }
 ]
