@@ -37,6 +37,7 @@ eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
+eval "$(thefuck --alias)"
 
 function find_project_widget() {
   eval "$(~/find_project.sh)"
@@ -46,3 +47,6 @@ zle -N find_project_widget
 
 bindkey '^f' find_project_widget
 bindkey '^w' kill-region
+
+alias ls='exa'
+alias fk='fuck'

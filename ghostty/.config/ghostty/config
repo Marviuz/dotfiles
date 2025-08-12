@@ -20,7 +20,8 @@ theme = "Poimandres"
 # ==========================
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
-font-family = "Geist Mono Nerd Font"
+font-family = "JetBrains Mono Nerd Font"
+font-size = 10
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.
