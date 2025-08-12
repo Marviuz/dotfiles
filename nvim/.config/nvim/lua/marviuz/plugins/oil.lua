@@ -25,10 +25,11 @@ return {
 	config = function(_, opts)
 		local oil = require("oil")
 		local oil_git_status = require("oil-git-status")
+
 		local map = require("marviuz.utils.map")
 
 		oil.setup(opts)
-		oil_git_status.setup()
+		oil_git_status.setup({ show_ignored = false })
 
 		map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,

@@ -19,14 +19,14 @@ return {
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 
-				opts.desc = "Show LSP references"
-				map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+				-- opts.desc = "Show LSP references"
+				-- map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
 				opts.desc = "Go to declaration"
 				map("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
-				opts.desc = "Show LSP definitions"
-				map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+				-- opts.desc = "Show LSP definitions"
+				-- map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
 				opts.desc = "Show LSP implementations"
 				map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
