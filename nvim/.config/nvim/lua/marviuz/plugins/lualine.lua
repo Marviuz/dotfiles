@@ -11,7 +11,7 @@ return {
 		local grapple_line = require("grapple-line")
 
 		grapple_line.setup({
-			number_of_files = 4,
+			number_of_files = 10,
 			colors = {
 				active = "lualine_a_normal",
 				inactive = "lualine_a_inactive",
