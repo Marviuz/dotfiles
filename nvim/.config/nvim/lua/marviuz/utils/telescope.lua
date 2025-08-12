@@ -93,7 +93,6 @@ M.unsaved_buffers = function()
 					vim.cmd("edit " .. vim.fn.fnameescape(selection.value))
 				end
 				map("i", "<CR>", open_file)
-				map("n", "<CR>", open_file)
 				return true
 			end,
 		})

@@ -16,6 +16,7 @@ return {
 
 		local map = require("marviuz.utils.map")
 		local telescope_util = require("marviuz.utils.telescope")
+		local snacks_util = require("marviuz.utils.snacks")
 
 		telescope.setup({
 			pickers = {
@@ -40,39 +41,28 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("oil")
 
-		local snacks_opts = {
-			win = {
-				input = {
-					keys = {
-						["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
-						["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
-					},
-				},
-			},
-			hidden = true,
-			ignored = true,
-			exclude = telescope_util.excludes,
-			auto_close = true,
-		}
-
 		map("n", "<leader>ff", function()
-			Snacks.picker.files(snacks_opts)
+			Snacks.picker.files(snacks_util.opts)
 		end, { desc = "Open files using snacks" })
 
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 
 		map("n", "<leader>fs", function()
-			Snacks.picker.grep(snacks_opts)
+			Snacks.picker.grep(snacks_util.opts)
 		end, { desc = "Grep using snacks" })
 
 		-- map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 
 		-- map("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "View modified files" })
 		map("n", "<leader>gs", function()
-			Snacks.picker.git_status(snacks_opts)
+			Snacks.picker.git_status(snacks_util.opts)
 		end, { desc = "Git status" })
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+
+		map("n", "<leader>ub", function()
+			snacks_util.unsaved_buffers()
+		end, { desc = "View unsaved buffer" })
 
 		map("n", "<space>fd", "<cmd>Telescope oil<CR>", { desc = "Find directory" })
 
@@ -82,7 +72,7 @@ return {
 
 		-- LSP
 		map("n", "gR", function()
-			Snacks.picker.lsp_references(snacks_opts)
+			Snacks.picker.lsp_references(snacks_util.opts)
 		end, { desc = "Show LSP references" })
 
 		map("n", "gd", function()
