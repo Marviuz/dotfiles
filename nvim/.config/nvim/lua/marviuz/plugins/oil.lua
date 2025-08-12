@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		-- "nvim-tree/nvim-web-devicons",
 		{ "echasnovski/mini.icons", version = "*" },
+		"refractalize/oil-git-status.nvim",
 	},
 	opts = {
 		lsp_file_methods = {
@@ -18,13 +19,16 @@ return {
 		},
 		win_options = {
 			winbar = "%{v:lua.require('oil').get_current_dir()}",
+			signcolumn = "yes:2",
 		},
 	},
 	config = function(_, opts)
 		local oil = require("oil")
+		local oil_git_status = require("oil-git-status")
 		local map = require("marviuz.utils.map")
 
 		oil.setup(opts)
+		oil_git_status.setup()
 
 		map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
