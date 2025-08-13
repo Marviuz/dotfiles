@@ -1,6 +1,10 @@
 -- Workfor inconsistent behavior of vim.fn.fnameescape on Windows
 -- @link https://youtu.be/ZqPpBfiX9ws?t=166
-if vim.fn.has("win32") then
+
+local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+
+if is_windows then
+	vim.notify()
 	local og_fnameescape = vim.fn.fnameescape
 	---@diagnostic disable-next-line: duplicate-set-field
 	vim.fn.fnameescape = function(...)
