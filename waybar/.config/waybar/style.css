@@ -46,6 +46,7 @@ window#waybar.bottom > box {
 #custom-opacity,
 #custom-power,
 #custom-theme-picker,
+#custom-toggle-record,
 #sys,
 #power {
   padding: 0 12px;

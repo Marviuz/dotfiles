@@ -11,7 +11,7 @@
     // ─────────────────────────────────────────────────────────────
     // Module Layout
     // ─────────────────────────────────────────────────────────────
-    "modules-left": ["hyprland/workspaces", "custom/theme-picker"],
+    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record"],
     // "modules-center": ["hyprland/window"],
     "modules-right": [
       // "custom/opacity",
@@ -194,6 +194,11 @@
       "format": "",
       "tooltip-format": "Theme Picker",
       "on-click": "~/.local/bin/switch-theme"
+    },
+    "custom/toggle-record": {
+      "format": "⏺",
+      "tooltip": "Toggle Screen Recording",
+      "on-click": "~/.local/bin/toggle-record"
     }
   }
 ]
