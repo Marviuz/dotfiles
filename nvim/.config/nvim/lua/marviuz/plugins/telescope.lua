@@ -5,7 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "echasnovski/mini.icons", version = "*" },
-		"albenisolmos/telescope-oil.nvim",
+		-- "albenisolmos/telescope-oil.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -35,12 +35,12 @@ return {
 		})
 
 		telescope.load_extension("fzf")
-		telescope.load_extension("oil")
+		-- telescope.load_extension("oil")
 
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 
 		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
-		map("n", "<space>fd", "<cmd>Telescope oil<CR>", { desc = "Find directory" })
+		-- map("n", "<space>fd", "<cmd>Telescope oil<CR>", { desc = "Find directory" })
 	end,
 }

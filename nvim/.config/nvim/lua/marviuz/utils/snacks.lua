@@ -58,4 +58,41 @@ M.unsaved_buffers = function()
 	}))
 end
 
+function M.oil_picker()
+	local cwd = vim.fs.normalize(vim.uv.cwd() or ".")
+
+	Snacks.picker({
+		title = "Oil: Directories",
+		format = "file",
+		layout = {
+			preset = "default",
+			---@diagnostic disable-next-line: assign-type-mismatch
+			preview = false,
+		},
+		cwd = cwd,
+		finder = function(_, ctx)
+			local args = { "--type", "directory", "--color", "never", "--hidden" }
+
+			table.insert(args, ".")
+
+			local proc_opts = {
+				cmd = "fd",
+				args = args,
+				cwd = cwd,
+				transform = function(item)
+					item.cwd = cwd
+					item.file = item.text
+					item.dir = true
+				end,
+			}
+
+			return require("snacks.picker.source.proc").proc({ {}, proc_opts }, ctx)
+		end,
+		confirm = function(picker, item)
+			picker:close()
+			require("oil").open(item.file)
+		end,
+	})
+end
+
 return M

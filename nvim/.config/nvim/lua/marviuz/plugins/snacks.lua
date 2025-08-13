@@ -38,5 +38,9 @@ return {
 		map("n", "gd", function()
 			Snacks.picker.lsp_definitions()
 		end, { desc = "Go to definition" })
+
+		map("n", "<leader>fd", function()
+			snacks_util.oil_picker()
+		end, { desc = "Find directory" })
 	end,
 }
