@@ -15,7 +15,7 @@ return {
 		end, { desc = "Open files using snacks" })
 
 		map("n", "<leader>fs", function()
-			Snacks.picker.grep(snacks_util.opts)
+			Snacks.picker.grep(vim.tbl_deep_extend("force", {}, { excludes = {} }, snacks_util.opts))
 		end, { desc = "Grep using snacks" })
 
 		map("n", "<leader>gs", function()

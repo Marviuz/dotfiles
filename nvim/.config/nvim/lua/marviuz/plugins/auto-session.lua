@@ -8,7 +8,6 @@ return {
 		auto_sessions.setup({
 			auto_session_enabled = true,
 			auto_restore = false,
-			auto_session_enable_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
 		})
 	end,
 }

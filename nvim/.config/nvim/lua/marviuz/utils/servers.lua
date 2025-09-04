@@ -89,7 +89,7 @@ local servers = {
 
 	emmet_ls = {
 		filetypes = {
-      "htmlangular",
+			"htmlangular",
 			"html",
 			"typescriptreact",
 			"javascriptreact",
@@ -107,9 +107,14 @@ local servers = {
 		},
 	},
 	angularls = {},
+
 	intelephense = {
 		filetypes = { "php" },
 	},
+
+	laravel_ls = {},
+
+	marksman = {},
 }
 
 return servers

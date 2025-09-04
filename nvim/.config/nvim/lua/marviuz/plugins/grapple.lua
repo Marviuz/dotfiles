@@ -18,6 +18,17 @@ return {
 			grapple.open_tags()
 		end, { desc = "Grapple quick menu" })
 
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "grapple",
+			callback = function()
+				map("n", "<leader>w", "<cmd>close<cr>", {
+          desc = "Close Grapple",
+					buffer = true,
+					silent = true,
+				})
+			end,
+		})
+
 		for idx = 0, 9 do
 			map("n", "<leader>" .. idx, function()
 				grapple.select({ index = idx })
