@@ -2,20 +2,20 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 local CODING_ZONE = 1024
-local DEFAULT_BACKGROUND = {
-	{
-		source = {
-			File = wezterm.home_dir .. "\\.config\\wezterm\\assets\\wallpaper.png",
-		},
-		horizontal_align = "Center",
-		vertical_align = "Middle",
-		opacity = 0.98,
-		hsb = {
-			brightness = 0.3,
-			-- brightness = 0.03,
-		},
-	},
-}
+-- local DEFAULT_BACKGROUND = {
+-- 	{
+-- 		source = {
+-- 			File = wezterm.home_dir .. "\\.config\\wezterm\\assets\\wallpaper.png",
+-- 		},
+-- 		horizontal_align = "Center",
+-- 		vertical_align = "Middle",
+-- 		opacity = 0.98,
+-- 		hsb = {
+-- 			brightness = 0.3,
+-- 			-- brightness = 0.03,
+-- 		},
+-- 	},
+-- }
 local DEFAULT_PADDING = {
 	left = 0,
 	right = 0,
@@ -25,12 +25,14 @@ local DEFAULT_PADDING = {
 
 local config = wezterm.config_builder()
 
+config.enable_wayland = false
+
 config.enable_scroll_bar = true
-config.default_prog = { "pwsh.exe" }
+-- config.default_prog = { "pwsh.exe" }
 config.font = wezterm.font("GeistMono Nerd Font")
 config.font_size = 10.0
 config.default_cursor_style = "BlinkingBar"
-config.background = DEFAULT_BACKGROUND
+-- config.background = DEFAULT_BACKGROUND
 config.color_scheme = "Windows 10 (base16)"
 config.term = "xterm-256color"
 config.window_padding = DEFAULT_PADDING
