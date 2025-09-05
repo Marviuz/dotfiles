@@ -25,10 +25,13 @@ local DEFAULT_PADDING = {
 
 local config = wezterm.config_builder()
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "pwsh.exe" }
+end
+
 config.enable_wayland = false
 
 config.enable_scroll_bar = true
--- config.default_prog = { "pwsh.exe" }
 config.font = wezterm.font("GeistMono Nerd Font")
 config.font_size = 10.0
 config.default_cursor_style = "BlinkingBar"
