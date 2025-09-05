@@ -35,7 +35,8 @@ return {
 				"css_variables",
 				"cssmodules_ls",
 				"lemminx",
-        "marksman",
+				"marksman",
+				"biome",
 			},
 		})
 

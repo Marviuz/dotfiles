@@ -19,9 +19,20 @@ local servers = {
 			}
 		end,
 		setup_extra = function()
-			map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
+			-- map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if client and client.name == "eslint" then
+						map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
+					end
+				end,
+			})
 		end,
 	},
+
+	biome = {},
 
 	ts_ls = {
 		commands = {
