@@ -1,0 +1,22 @@
+#!/bin/bash
+
+PID_FILE="/tmp/wf-recorder.pid"
+OUTPUT_DIR="$HOME/Videos"
+TIMESTAMP=$(date +%s)
+OUTPUT_FILE="$OUTPUT_DIR/recording_$TIMESTAMP.mp4"
+
+if [ -f "$PID_FILE" ]; then
+    # If PID file exists, kill the process (stop recording)
+    kill -INT "$(cat "$PID_FILE")" && rm "$PID_FILE"
+    notify-send "Screen Recording" "Recording stopped"
+else
+    GEOM=$(slurp)
+    if [ -z "$GEOM" ]; then
+        notify-send "Screen Recording" "Cancelled"
+        exit 1
+    fi
+    # Start recording
+    wf-recorder -g "$GEOM" -f "$OUTPUT_FILE" &
+    echo $! > "$PID_FILE"
+    notify-send "Screen Recording" "Recording started"
+fi

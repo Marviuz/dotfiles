@@ -1,0 +1,7 @@
+-- this is good but some stuff are broken...
+
+return {
+	"echasnovski/mini.ai",
+	version = "*",
+	config = true,
+}

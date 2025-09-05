@@ -1,0 +1,204 @@
+[
+  {
+    // ─────────────────────────────────────────────────────────────
+    // Waybar General Settings
+    // ─────────────────────────────────────────────────────────────
+    "name": "top",
+    "layer": "top",
+    "position": "top",
+    // "height": 32,
+
+    // ─────────────────────────────────────────────────────────────
+    // Module Layout
+    // ─────────────────────────────────────────────────────────────
+    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record"],
+    // "modules-center": ["hyprland/window"],
+    "modules-right": [
+      // "custom/opacity",
+      // "pulseaudio#output",
+      // "pulseaudio#input",
+      "group/audio",
+      // "network",
+      // "cpu",
+      // "memory",
+      "group/sys",
+      // "battery",
+      // "tray",
+      // "custom/notification",
+      "group/systemcenter",
+      "clock",
+      "group/power"
+    ],
+
+    // ─────────────────────────────────────────────────────────────
+    // Workspaces
+    // ─────────────────────────────────────────────────────────────
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{name}: {icon}",
+      "format-icons": {
+        "urgent": "",
+        "default": "○",
+        "active": "●"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // Focused Window
+    // ─────────────────────────────────────────────────────────────
+    // "hyprland/window": {
+    //   // Default config is fine, styling is done in CSS
+    //},
+
+    // ─────────────────────────────────────────────────────────────
+    // Audio / Volume
+    // ─────────────────────────────────────────────────────────────
+    "pulseaudio#output": {
+      "scroll-step": 5,
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+        "headphones": "",
+        "handsfree": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+      },
+      "on-click": "pavucontrol"
+    },
+    "pulseaudio#input": {
+      "scroll-step": 5,
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",  // microphone-slash
+      "format-icons": {
+        "default": ["", ""]  // microphone icons
+      },
+      "on-click": "pavucontrol"  },
+
+    // ─────────────────────────────────────────────────────────────
+    // System Stats
+    // ─────────────────────────────────────────────────────────────
+    "cpu": {
+      "format": "{usage}% "
+    },
+
+    "memory": {
+      "format": "{}% ",
+      "tooltip-format": "{}% RAM used"
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+      "format-wifi": "{signalStrength}% ",
+      "tooltip-format-wifi": "{essid} {signalStrength}% ",
+      "format-ethernet": "{ifname}: {cidr} ",
+      "format-disconnected": "Disconnected ⚠"
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // Tray & Notifications
+    // ─────────────────────────────────────────────────────────────
+    "tray": {
+      "spacing": 10
+    },
+
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // Clock
+    // ─────────────────────────────────────────────────────────────
+    "clock": {
+      "format": "{:%b %e, %Y | %a | %I:%M %p}",
+      "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}"
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // Custom Modules
+    // ─────────────────────────────────────────────────────────────
+    "custom/opacity": {
+      "on-click": "~/.config/waybar/hyprland_opacity_toggle.sh",
+      "format": "Opacity ●"
+    },
+
+    "group/sys": {
+      "orientation": "horizontal",
+      "modules": ["cpu", "memory", "network", "battery"]
+    },
+
+    "group/power": {
+      "orientation": "horizontal",
+      "modules": ["custom/lock", "custom/logout", "custom/reboot", "custom/shutdown"]
+    },
+
+    "custom/lock": {
+      "format": "",
+      "tooltip-format": "Lock",
+      "on-click": "hyprlock"
+    },
+    "custom/logout": {
+      "format": "󰗽",
+      "tooltip-format": "Logout",
+      "on-click": "hyprctl dispatch exit"
+    },
+    "custom/reboot": {
+      "format": "󰜉",
+      "tooltip-format": "Reboot",
+      "on-click": "systemctl reboot"
+    },
+    "custom/shutdown": {
+      "format": "",
+      "tooltip-format": "Shutdown",
+      "on-click": "systemctl poweroff"
+    },
+    "group/systemcenter": {
+      "orientation": "horizontal",
+      "modules": ["tray", "custom/notification"]
+    },
+    "group/audio": {
+      "orientation": "horizontal",
+      "modules": ["pulseaudio#input" ,"pulseaudio#output"]
+    },
+    "custom/theme-picker": {
+      "format": "",
+      "tooltip-format": "Theme Picker",
+      "on-click": "~/.local/bin/switch-theme"
+    },
+    "custom/toggle-record": {
+      "format": "⏺",
+      "tooltip": "Toggle Screen Recording",
+      "on-click": "~/.local/bin/toggle-record"
+    }
+  }
+]

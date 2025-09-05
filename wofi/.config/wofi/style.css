@@ -1,0 +1,114 @@
+@define-color white       rgba(255, 255, 255, 1.0);
+@define-color light-gray  rgba(210, 210, 220, 1.0);
+@define-color gray        rgba(160, 160, 175, 1.0);
+@define-color dark-gray   rgba(110, 110, 125, 1.0);
+@define-color darker-gray rgba(70, 70, 85, 1.0);
+@define-color black       rgba(25, 27, 40, 0.95);
+
+@define-color text        @light-gray;
+@define-color subtext1    @gray;
+@define-color subtext0    @dark-gray;
+@define-color overlay2    @dark-gray;
+@define-color overlay1    @darker-gray;
+@define-color overlay0    @black;
+
+@define-color surface2    rgba(50, 50, 60, 0.92);
+@define-color surface1    rgba(40, 40, 50, 0.94);
+@define-color surface0    rgba(30, 30, 45, 0.96);
+@define-color base        rgba(25, 25, 40, 0.97);
+@define-color mantle      rgba(20, 20, 35, 0.98);
+@define-color crust       rgba(15, 15, 30, 0.96);
+
+* {
+  font-family: "GeistMono Nerd Font Mono", monospace;
+  font-size: 14px;
+}
+
+window {
+  margin: 10px;
+  padding: 18px;
+  border: 2px solid @gray;
+  border-radius: 20px;
+  background-color: @base;
+}
+
+#outer-box {
+  margin: 5px;
+  padding: 14px;
+  border: none;
+  border-radius: 16px;
+  background-color: @surface1;
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background-color: @surface0;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: @surface0;
+  overflow-y: auto;
+}
+
+#entry {
+  border-radius: 12px;
+  background-color: @surface1;
+  padding: 10px 16px;
+  margin: 6px 0;
+  user-select: none;
+}
+
+#entry arrow {
+  border: none;
+  color: @light-gray;
+}
+
+#entry:selected {
+  border: 2px solid @gray;
+  background-color: rgba(160, 160, 175, 0.2);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 6px 0;
+}
+
+#entry:selected #text {
+  color: @white;
+}
+
+#entry:drop(active) {
+  background-color: rgba(160, 160, 175, 0.25) !important;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 6px 0;
+}
+
+#input {
+  margin: 5px 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  color: @text;
+  background-color: @mantle;
+}
+
+#input image {
+  border: none;
+  color: @gray;
+}
+
+#input * {
+  outline: 2px solid @gray !important;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @text;
+}
