@@ -44,9 +44,26 @@ function find_project_widget() {
   zle reset-prompt
 }
 zle -N find_project_widget
-
 bindkey '^f' find_project_widget
 bindkey '^w' kill-region
+
+function git_branch_search() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    local branch=$(git branch -a --color=always \
+      | sed 's/^[* ]*//' \
+      | fzf --ansi --preview "git log --oneline --color=always --decorate --graph -- {}" \
+      | sed 's#remotes/[^/]*/##')
+
+    if [[ -n "$branch" ]]; then
+      git switch "$branch"
+    fi
+  else
+    echo "Not inside a Git repository"
+  fi
+}
+zle -N git_branch_search
+bindkey '^B' git_branch_search
+
 
 alias ls='exa'
 alias fk='fuck'

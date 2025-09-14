@@ -32,7 +32,7 @@ end
 config.enable_wayland = false
 
 config.enable_scroll_bar = true
-config.font = wezterm.font("GeistMono Nerd Font")
+config.font = wezterm.font("JetBrains Mono Nerd Font")
 config.font_size = 10.0
 config.default_cursor_style = "BlinkingBar"
 -- config.background = DEFAULT_BACKGROUND
