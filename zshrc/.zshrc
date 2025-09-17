@@ -64,6 +64,14 @@ function git_branch_search() {
 zle -N git_branch_search
 bindkey '^B' git_branch_search
 
+DEFAULT_TMUX_SESSION_NAME=main
+if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+  if tmux has-session -t "$DEFAULT_TMUX_SESSION_NAME" 2>/dev/null; then
+    tmux attach -t "$DEFAULT_TMUX_SESSION_NAME"
+  else
+    tmux new -s "$DEFAULT_TMUX_SESSION_NAME"
+  fi
+fi
 
 alias ls='exa'
 alias fk='fuck'
