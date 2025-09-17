@@ -13,5 +13,5 @@ configuration {
     sidebar-mode: true;
 }
 
-// @theme "monochrome.rasi"
-@theme "rounded-gray-dark.rasi"
+@import "colors.rasi"
+@import "rounded-template.rasi"
