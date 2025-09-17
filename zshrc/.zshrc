@@ -51,11 +51,11 @@ function git_branch_search() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
     local branch=$(git branch -a --color=always \
       | sed 's/^[* ]*//' \
-      | fzf --ansi --preview "git log --oneline --color=always --decorate --graph -- {}" \
+      | fzf --ansi \
       | sed 's#remotes/[^/]*/##')
 
-    if [[ -n "$branch" ]]; then
-      git switch "$branch"
+    if [[ -n "$branch" ]]; then 
+      git switch "$branch" > /dev/null 2>&1
     fi
   else
     echo "Not inside a Git repository"

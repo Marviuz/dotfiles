@@ -18,8 +18,9 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+		local loader_from_vscode = require("luasnip.loaders.from_vscode")
 
-		require("luasnip.loaders.from_vscode").lazy_load()
+		loader_from_vscode.lazy_load()
 
 		cmp.setup({
 			window = {
