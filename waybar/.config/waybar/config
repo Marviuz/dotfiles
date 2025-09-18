@@ -11,7 +11,7 @@
     // ─────────────────────────────────────────────────────────────
     // Module Layout
     // ─────────────────────────────────────────────────────────────
-    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record"],
+    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record", "custom/toggle-gamemode"],
     // "modules-center": ["hyprland/window"],
     "modules-right": [
       // "custom/opacity",
@@ -159,18 +159,13 @@
 
     "group/power": {
       "orientation": "horizontal",
-      "modules": ["custom/lock", "custom/logout", "custom/reboot", "custom/shutdown"]
+      "modules": ["custom/lock", "custom/reboot", "custom/shutdown"]
     },
 
     "custom/lock": {
       "format": "",
       "tooltip-format": "Lock",
       "on-click": "hyprlock"
-    },
-    "custom/logout": {
-      "format": "󰗽",
-      "tooltip-format": "Logout",
-      "on-click": "hyprctl dispatch exit"
     },
     "custom/reboot": {
       "format": "󰜉",
@@ -197,8 +192,13 @@
     },
     "custom/toggle-record": {
       "format": "⏺",
-      "tooltip": "Toggle Screen Recording",
+      "tooltip-format": "Record",
       "on-click": "~/.local/bin/toggle-record"
+    },
+    "custom/toggle-gamemode": {
+      "format": "",
+      "tooltip-format": "Toggle Game mode",
+      "on-click": "~/.local/bin/gamemode"
     }
   }
 ]

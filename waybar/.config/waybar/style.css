@@ -47,6 +47,7 @@ window#waybar.bottom > box {
 #custom-power,
 #custom-theme-picker,
 #custom-toggle-record,
+#custom-toggle-gamemode,
 #sys,
 #power {
   padding: 0 12px;
@@ -62,7 +63,6 @@ window#waybar.bottom > box {
 #network,
 #pulseaudio.input,
 #custom-lock,
-#custom-logout,
 #custom-reboot {
   margin-right: 12px;
 }
