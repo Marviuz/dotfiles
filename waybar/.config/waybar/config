@@ -78,7 +78,8 @@
       "format-icons": {
         "default": ["", ""]  // microphone icons
       },
-      "on-click": "pavucontrol"  },
+      "on-click": "pavucontrol"
+    },
 
     // ─────────────────────────────────────────────────────────────
     // System Stats

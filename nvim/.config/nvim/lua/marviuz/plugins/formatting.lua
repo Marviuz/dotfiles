@@ -6,6 +6,16 @@ return {
 		local conform = require("conform")
 		local map = require("marviuz.utils.map")
 
+		local function first(bufnr, ...)
+			for i = 1, select("#", ...) do
+				local formatter = select(i, ...)
+				if conform.get_formatter_info(formatter, bufnr).available then
+					return formatter
+				end
+			end
+			return select(1, ...)
+		end
+
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
@@ -17,7 +27,7 @@ return {
 				scss = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 				sass = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 				html = { "biome-check", "prettierd", "prettier", stop_after_first = true },
-				htmlangular = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+				htmlangular = { "prettierd", "prettier" },
 				json = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 				yaml = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 				markdown = { "biome-check", "prettierd", "prettier", stop_after_first = true },
