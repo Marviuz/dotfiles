@@ -19,7 +19,7 @@ opt.cursorline = true
 
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:3"
 
 opt.backspace = "indent,eol,start"
 

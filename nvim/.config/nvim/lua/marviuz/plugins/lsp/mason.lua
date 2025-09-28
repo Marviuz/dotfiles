@@ -24,7 +24,7 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			automatic_enable = false, -- Let nvim-lspconfig automatic enable lsp servers
+			automatic_enable = false,
 			ensure_installed = {
 				"ts_ls",
 				"html",
@@ -44,7 +44,6 @@ return {
 			ensure_installed = {
 				"prettierd",
 				"stylua",
-				-- "eslint_d", -- faster but no code actions
 				"eslint",
 				"jsonls",
 			},

@@ -19,8 +19,6 @@ local servers = {
 			}
 		end,
 		setup_extra = function()
-			-- map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -35,30 +33,6 @@ local servers = {
 	biome = {},
 
 	ts_ls = {
-		commands = {
-			OrganizeImports = {
-				function()
-					local bufnr = vim.api.nvim_get_current_buf()
-					local params = {
-						command = "_typescript.organizeImports",
-						arguments = { vim.api.nvim_buf_get_name(0) },
-						title = "",
-					}
-
-					for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-						if client.name == "ts_ls" then
-							client:request("workspace/executeCommand", params, nil, bufnr)
-							return
-						end
-					end
-
-					vim.notify("No active ts_ls client found", vim.log.levels.WARN)
-
-					-- vim.lsp.buf.execute_command(params)
-				end,
-				description = "Organize Imports",
-			},
-		},
 		filetypes = {
 			"typescriptreact",
 			"javascriptreact",
@@ -68,7 +42,32 @@ local servers = {
 			"vue",
 		},
 		setup_extra = function()
-			map("n", "<leader>oi", "<cmd>OrganizeImports<CR>", { desc = "Organize imports" })
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("ts_ls.lsp", { clear = true }),
+				callback = function(args)
+					local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+					local bufnr = args.buf
+
+					if client.name == "ts_ls" then
+						map("n", "<leader>oi", function()
+							client:exec_cmd({
+								command = "_typescript.organizeImports",
+								arguments = { vim.api.nvim_buf_get_name(bufnr) },
+							})
+						end, { desc = "Organize imports" })
+
+						map("n", "<leader>ri", function()
+							vim.lsp.buf.code_action({
+								apply = true,
+								context = {
+									diagnostics = {},
+									only = { "source.removeUnusedImports.ts" },
+								},
+							})
+						end, { desc = "Organize imports" })
+					end
+				end,
+			})
 		end,
 	},
 
@@ -117,7 +116,13 @@ local servers = {
 			"vue",
 		},
 	},
-	angularls = {},
+
+	angularls = {
+		root_markers = {
+			"angular.json",
+			"nx.json",
+		},
+	},
 
 	intelephense = {
 		filetypes = { "php" },

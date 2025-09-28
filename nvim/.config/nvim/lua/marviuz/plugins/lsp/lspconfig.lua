@@ -7,7 +7,7 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -68,39 +68,28 @@ return {
 			end,
 		})
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			-- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-			vim.diagnostic.config({
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = signs.Error,
-						[vim.diagnostic.severity.WARN] = signs.Warn,
-						[vim.diagnostic.severity.INFO] = signs.Info,
-						[vim.diagnostic.severity.HINT] = signs.Hint,
-					},
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.INFO] = "󰠠 ",
+					[vim.diagnostic.severity.HINT] = " ",
 				},
-			})
-		end
-
-		vim.lsp.config("*", {
-			capabilities = capabilities,
+			},
 		})
 
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+
 		for name, config in pairs(servers) do
-			lspconfig[name].setup(config)
+			vim.lsp.config(name, config)
+
 			if config.setup_extra then
 				config.setup_extra()
 			end
+
+			vim.lsp.enable(name)
 		end
-
-		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		-- 	border = "rounded",
-		-- })
-
-		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover
 	end,
 }
