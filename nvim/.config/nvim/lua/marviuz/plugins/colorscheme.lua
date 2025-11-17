@@ -27,14 +27,6 @@ local colorschemes = {
 		colorscheme = "darkvoid",
 	},
 	{
-		name = "Lackluster - Hack",
-		colorscheme = "lackluster-hack",
-	},
-	{
-		name = "Lackluster - Mint",
-		colorscheme = "lackluster-mint",
-	},
-	{
 		name = "Eidolon - Midnight",
 		colorscheme = "eidolon-midnight",
 	},
@@ -45,6 +37,74 @@ local colorschemes = {
 	{
 		name = "Eidolon - Dusk",
 		colorscheme = "eidolon-dusk",
+	},
+	{
+		name = "Zenbones",
+		colorscheme = "zenbones",
+	},
+	{
+		name = "Zenbones - zenwritten",
+		colorscheme = "zenwritten",
+	},
+	{
+		name = "Zenbones - neobones",
+		colorscheme = "neobones",
+	},
+	{
+		name = "Zenbones - vimbones",
+		colorscheme = "vimbones",
+	},
+	{
+		name = "Zenbones - rosebones",
+		colorscheme = "rosebones",
+	},
+	{
+		name = "Zenbones - forestbones",
+		colorscheme = "forestbones",
+	},
+	{
+		name = "Zenbones - nordbones",
+		colorscheme = "nordbones",
+	},
+	{
+		name = "Zenbones - tokyobones",
+		colorscheme = "tokyobones",
+	},
+	{
+		name = "Zenbones - seoulbones",
+		colorscheme = "seoulbones",
+	},
+	{
+		name = "Zenbones - duckbones",
+		colorscheme = "duckbones",
+	},
+	{
+		name = "Zenbones - zenburned",
+		colorscheme = "zenburned",
+	},
+	{
+		name = "Zenbones - kanagawabones",
+		colorscheme = "kanagawabones",
+	},
+	{
+		name = "VSCode",
+		colorscheme = "vscode",
+	},
+	{
+		name = "Tokyonight",
+		colorscheme = "tokyonight",
+	},
+	{
+		name = "Tokyonight - Night",
+		colorscheme = "tokyonight-night",
+	},
+	{
+		name = "Tokyonight - Storm",
+		colorscheme = "tokyonight-storm",
+	},
+	{
+		name = "Tokyonight - Moon",
+		colorscheme = "tokyonight-moon",
 	},
 }
 
@@ -60,8 +120,12 @@ return {
 		"gmr458/vscode_modern_theme.nvim",
 		"dark-orchid/neovim",
 		"aliqyan-21/darkvoid.nvim",
-		"slugbyte/lackluster.nvim",
 		"Vallen217/eidolon.nvim",
+		"Mofiqul/vscode.nvim",
+		"folke/tokyonight.nvim",
+
+		"zenbones-theme/zenbones.nvim",
+		"rktjmp/lush.nvim",
 	},
 	lazy = false,
 	priority = 1000,

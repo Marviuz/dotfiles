@@ -49,7 +49,8 @@ bindkey '^w' kill-region
 
 function git_branch_search() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
-    local branch=$(git branch -a --color=always \
+    # local branch=$(git branch -a --color=always \ <- with remote branches
+    local branch=$(git branch --color=always \
       | sed 's/^[* ]*//' \
       | fzf --ansi \
       | sed 's#remotes/[^/]*/##')
@@ -60,18 +61,19 @@ function git_branch_search() {
   else
     echo "Not inside a Git repository"
   fi
+  zle reset-prompt
 }
 zle -N git_branch_search
 bindkey '^B' git_branch_search
 
-DEFAULT_TMUX_SESSION_NAME=main
-if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
-  if tmux has-session -t "$DEFAULT_TMUX_SESSION_NAME" 2>/dev/null; then
-    tmux attach -t "$DEFAULT_TMUX_SESSION_NAME"
-  else
-    tmux new -s "$DEFAULT_TMUX_SESSION_NAME"
-  fi
-fi
+# DEFAULT_TMUX_SESSION_NAME=main
+# if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+#   if tmux has-session -t "$DEFAULT_TMUX_SESSION_NAME" 2>/dev/null; then
+#     tmux attach -t "$DEFAULT_TMUX_SESSION_NAME"
+#   else
+#     tmux new -s "$DEFAULT_TMUX_SESSION_NAME"
+#   fi
+# fi
 
 alias ls='exa'
 alias fk='fuck'

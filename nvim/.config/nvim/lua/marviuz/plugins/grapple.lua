@@ -22,7 +22,7 @@ return {
 			pattern = "grapple",
 			callback = function()
 				map("n", "<leader>w", "<cmd>close<cr>", {
-          desc = "Close Grapple",
+					desc = "Close Grapple",
 					buffer = true,
 					silent = true,
 				})

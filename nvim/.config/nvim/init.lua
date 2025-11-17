@@ -1,8 +1,8 @@
+local _os = require("marviuz.utils.os")
+local is_windows = _os.is_windows()
+
 -- Workfor inconsistent behavior of vim.fn.fnameescape on Windows
 -- @link https://youtu.be/ZqPpBfiX9ws?t=166
-
-local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-
 if is_windows then
 	local og_fnameescape = vim.fn.fnameescape
 	---@diagnostic disable-next-line: duplicate-set-field

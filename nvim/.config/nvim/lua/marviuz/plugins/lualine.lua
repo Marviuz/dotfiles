@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		{ "echasnovski/mini.icons", version = "*" },
 		"nvim-lua/plenary.nvim",
-		{ "will-lynas/grapple-line.nvim", version = "1.x" },
+		"marviuz/grapple-line.nvim",
 	},
 	config = function()
 		local lualine = require("lualine")
@@ -17,9 +17,13 @@ return {
 				inactive = "lualine_a_inactive",
 			},
 			mode = "unique_filename",
-			show_names = false,
+			show_names = true,
 			overflow = "none",
 			always_show_parent = {},
+
+			formatter = function(index, name, _)
+				return string.format("%d: %s", index, name)
+			end,
 		})
 
 		lualine.setup({

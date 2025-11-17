@@ -1,13 +1,22 @@
 local M = {}
 
 M.excludes = {
-	".git/*",
-	".next/*",
-	"**/node_modules/*",
-	"**/vendor/*",
-	".turbo/*",
-	"build/*",
-	"out/*",
+	-- ".git/*",
+	-- ".next/*",
+	-- "**/node_modules/*",
+	-- "**/vendor/*",
+	-- ".turbo/*",
+	-- "build/*",
+	-- "out/*",
+
+	"**/.git/**",
+	"**/.next/**",
+	"**/node_modules/**",
+	"**/vendor/**",
+	"**/.turbo/**",
+	"**/build/**",
+	"**/out/**",
+	"**/dist/**",
 }
 
 local default_opts = {

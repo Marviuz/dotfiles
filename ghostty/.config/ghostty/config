@@ -43,3 +43,6 @@ font-size = 10
 # # which is explained in the docs for that config option.
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
+
+# Uncomment when have more PC power
+# custom-shader = "./shaders/cursor_smear.glsl"
