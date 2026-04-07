@@ -15,7 +15,7 @@ SELECTED_WALLPAPER=$(
 )
 
 if [ -n "$SELECTED_WALLPAPER" ]; then
-  swww img "$WALLPAPER_DIR/$SELECTED_WALLPAPER" --transition-type="center" --transition-step=1 --transition-fps="60"
+  awww img "$WALLPAPER_DIR/$SELECTED_WALLPAPER" --transition-type="center" --transition-step=1 --transition-fps="60"
   matugen image "$WALLPAPER_DIR/$SELECTED_WALLPAPER"
 fi
 

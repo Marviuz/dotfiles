@@ -95,7 +95,7 @@ function M.oil_picker()
 				end,
 			}
 
-			return require("snacks.picker.source.proc").proc({ {}, proc_opts }, ctx)
+			return require("snacks.picker.source.proc").proc(proc_opts, ctx)
 		end,
 		confirm = function(picker, item)
 			picker:close()

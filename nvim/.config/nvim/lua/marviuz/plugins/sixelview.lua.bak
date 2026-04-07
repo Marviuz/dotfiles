@@ -1,7 +1,0 @@
-return {
-	"kjuq/sixelview.nvim",
-	opts = {
-		auto = true,
-		delay_ms = 100,
-	},
-}

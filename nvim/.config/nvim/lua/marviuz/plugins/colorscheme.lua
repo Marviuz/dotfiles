@@ -106,6 +106,16 @@ local colorschemes = {
 		name = "Tokyonight - Moon",
 		colorscheme = "tokyonight-moon",
 	},
+  {
+    name = "Carbonfox",
+    colorscheme = "carbonfox",
+    before = function()
+      local nightfox = require("nightfox")
+      nightfox.setup({
+        transparent = transparent_enabled,
+      })
+    end
+  }
 }
 
 table.sort(colorschemes, function(a, b)
@@ -126,6 +136,7 @@ return {
 
 		"zenbones-theme/zenbones.nvim",
 		"rktjmp/lush.nvim",
+		"EdenEast/nightfox.nvim",
 	},
 	lazy = false,
 	priority = 1000,

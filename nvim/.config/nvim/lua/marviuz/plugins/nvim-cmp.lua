@@ -24,8 +24,12 @@ return {
 
 		cmp.setup({
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered({
+					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				}),
+				documentation = cmp.config.window.bordered({
+					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				}),
 			},
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",

@@ -23,7 +23,7 @@ local servers = {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 					if client and client.name == "eslint" then
-						map({ "n", "v" }, "<leader>me", ":EslintFixAll<cr>", { desc = "Run :EslintFixAll" })
+						map({ "n", "v" }, "<leader>me", ":LspEslintFixAll<cr>", { desc = "Run :LspEslintFixAll" })
 					end
 				end,
 			})
@@ -131,6 +131,8 @@ local servers = {
 	laravel_ls = {},
 
 	marksman = {},
+
+	pylsp = {},
 }
 
 return servers

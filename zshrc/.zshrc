@@ -33,6 +33,32 @@ zinit light Aloxaf/fzf-tab
 
 autoload -Uz compinit; compinit
 
+# zstyle ':autocomplete:*' default-context ''
+# zstyle ':autocomplete:*' min-input 1
+# zstyle ':autocomplete:*' fzf-completion off
+# zstyle ':autocomplete:*' insert-unambiguous yes
+# zstyle ':completion:*' completer _history
+# zstyle ':autocomplete:*' list-lines 16
+# zstyle ':completion:*' format ''
+# zstyle ':completion:*' group-name ''
+# zstyle ':completion:*' menu select=1
+# zstyle ':completion:*' list-separator '→'
+# zstyle ':completion:*' list-dirs-first true
+# zstyle ':completion:*' list-suffixes true
+# setopt INC_APPEND_HISTORY
+# setopt SHARE_HISTORY
+# setopt HIST_IGNORE_ALL_DUPS
+# setopt HIST_IGNORE_SPACE
+# setopt HIST_SAVE_NO_DUPS
+# HISTFILE=~/.zsh_history
+# HISTSIZE=10000
+# SAVEHIST=10000
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"

@@ -11,7 +11,7 @@
     // ─────────────────────────────────────────────────────────────
     // Module Layout
     // ─────────────────────────────────────────────────────────────
-    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record", "custom/toggle-gamemode"],
+    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record", "custom/toggle-screenshot", "custom/toggle-gamemode"],
     // "modules-center": ["hyprland/window"],
     "modules-right": [
       // "custom/opacity",
@@ -195,6 +195,11 @@
       "format": "⏺",
       "tooltip-format": "Record",
       "on-click": "~/.local/bin/toggle-record"
+    },
+    "custom/toggle-screenshot": {
+      "format": "ss",
+      "tooltip-format": "Region screenshot",
+      "on-click": "wayfreeze --hide-cursor & PID=$!; sleep .1; hyprshot -z -m region; kill $PID"
     },
     "custom/toggle-gamemode": {
       "format": "",
