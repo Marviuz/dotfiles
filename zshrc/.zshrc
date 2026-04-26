@@ -64,6 +64,7 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"
+eval "$(mise activate zsh)"
 
 function find_project_widget() {
   eval "$(~/find_project.sh)"

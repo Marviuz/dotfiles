@@ -197,7 +197,7 @@
       "on-click": "~/.local/bin/toggle-record"
     },
     "custom/toggle-screenshot": {
-      "format": "ss",
+      "format": "󰹑",
       "tooltip-format": "Region screenshot",
       "on-click": "wayfreeze --hide-cursor & PID=$!; sleep .1; hyprshot -z -m region; kill $PID"
     },
