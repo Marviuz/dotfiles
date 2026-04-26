@@ -1,8 +1,7 @@
 return {
 	"nvimdev/lspsaga.nvim",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		{ "echasnovski/mini.icons", version = "*" },
+		{ "nvim-mini/mini.icons", version = "*" },
 	},
 	config = function()
 		local lspsaga = require("lspsaga")

@@ -1,6 +1,11 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
+local ui2 = require("vim._core.ui2")
+
+vim.loader.enable()
+
+ui2.enable({})
 
 opt.relativenumber = true
 opt.number = true

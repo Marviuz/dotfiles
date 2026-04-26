@@ -1,3 +1,5 @@
+-- Prefer vim.cmd.packadd("nvim.undotree")
+
 return {
 	"mbbill/undotree",
 	config = function()

@@ -1,0 +1,49 @@
+return {
+	"romus204/tree-sitter-manager.nvim",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+		{
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			branch = "main",
+		},
+	},
+	config = function()
+		local ts_manager = require("tree-sitter-manager")
+
+		ts_manager.setup({
+			highlight = false,
+			auto_install = true,
+			ensure_installed = {
+				"angular",
+				"bash",
+				"css",
+				"dockerfile",
+				"gitignore",
+				"html",
+				"hyprlang",
+				"javascript",
+				"json",
+				"jsx",
+				"lua",
+				"markdown",
+				"php",
+				"prisma",
+				"regex",
+				"rust",
+				"svelte",
+				"tsx",
+				"typescript",
+				"vim",
+				"vimdoc",
+				"vue",
+				"yaml",
+			},
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				pcall(vim.treesitter.start)
+			end,
+		})
+	end,
+}
