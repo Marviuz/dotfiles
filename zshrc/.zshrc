@@ -56,6 +56,7 @@ autoload -Uz compinit; compinit
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
