@@ -4,6 +4,7 @@ return {
 		{ "nvim-mini/mini.icons", version = "*" },
 		"nvim-lua/plenary.nvim",
 		"marviuz/grapple-line.nvim",
+		{ dir = "~/Projects/marviuz/marviuz-nvim-utils.nvim" },
 	},
 	config = function()
 		local lualine = require("lualine")
@@ -32,7 +33,11 @@ return {
 			},
 			tabline = {
 				lualine_a = {
-					grapple_line.lualine,
+					-- grapple_line.lualine,
+					require("marviuz-nvim-utils").lualine,
+				},
+				lualine_z = {
+					require("marviuz-nvim-utils.marker").lualine,
 				},
 			},
 			sections = {

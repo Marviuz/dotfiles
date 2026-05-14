@@ -10,6 +10,11 @@ return {
 		local map = require("marviuz.utils.map")
 		local snacks_util = require("marviuz.utils.snacks")
 
+		Snacks.setup({
+			input = {},
+			picker = {},
+		})
+
 		map("n", "<leader>ff", function()
 			Snacks.picker.files(snacks_util.opts)
 		end, { desc = "Open files using snacks" })

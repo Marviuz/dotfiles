@@ -11,6 +11,19 @@ return {
 	-- 	"rafamadriz/friendly-snippets",
 	-- 	"onsails/lspkind.nvim",
 	-- },
+	dependencies = {
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -67,7 +80,14 @@ return {
 		-- snippets = { preset = "luasnip" },
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			providers = {
+				lazydev = {
+					name = "Lazydev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
