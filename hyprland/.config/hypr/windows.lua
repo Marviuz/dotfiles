@@ -38,3 +38,10 @@ hl.window_rule({
 	move = "20 monitor_h-120",
 	float = true,
 })
+
+-- Reduce opacity of terminal
+hl.window_rule({
+	match = { class = "(?i).*(tty|console|shell).*" },
+	opacity = 0.92,
+  no_blur = false,
+})
