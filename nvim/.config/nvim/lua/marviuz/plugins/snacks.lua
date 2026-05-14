@@ -2,7 +2,7 @@ return {
 	"folke/snacks.nvim",
 	version = "*",
 	dependencies = {
-		{ "echasnovski/mini.icons", version = "*" },
+		{ "nvim-mini/mini.icons", version = "*" },
 	},
 	config = function()
 		local Snacks = require("snacks")
@@ -42,5 +42,9 @@ return {
 		map("n", "<leader>fd", function()
 			snacks_util.oil_picker()
 		end, { desc = "Find directory" })
+
+		map("n", "<leader>fk", function()
+			Snacks.picker.keymaps()
+		end, { desc = "Keymaps" })
 	end,
 }

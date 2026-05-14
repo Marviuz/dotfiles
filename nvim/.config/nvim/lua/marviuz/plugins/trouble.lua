@@ -4,7 +4,7 @@ return {
 	cmd = "Trouble",
 	dependencies = {
 		-- "nvim-tree/nvim-web-devicons",
-		{ "echasnovski/mini.icons", version = "*" },
+		{ "nvim-mini/mini.icons", version = "*" },
 		{ "folke/todo-comments.nvim", version = "*" },
 	},
 	keys = {
