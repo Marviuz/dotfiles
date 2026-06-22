@@ -4,6 +4,7 @@ return {
 	config = function()
 		local ai = require("mini.ai")
 		ai.setup({
+			n_lines = 50,
 			custom_textobjects = {
 				f = ai.gen_spec.treesitter({
 					a = "@function.outer",

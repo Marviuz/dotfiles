@@ -80,11 +80,11 @@ local keybinds = {
 
 	-- Screenshots
 	{
-		key = keybind(consts.mainMod, "print"),
+		key = keybind("print"),
 		dsp = hl.dsp.exec_cmd("wayfreeze --hide-cursor & PID=$!; sleep .1; hyprshot -z -m output; kill $PID"),
 	},
 	{
-		key = keybind(consts.mainMod, "SHIFT", "print"),
+		key = keybind("SHIFT", "print"),
 		dsp = hl.dsp.exec_cmd("wayfreeze --hide-cursor & PID=$!; sleep .1; hyprshot -z -m window; kill $PID"),
 	},
 	{

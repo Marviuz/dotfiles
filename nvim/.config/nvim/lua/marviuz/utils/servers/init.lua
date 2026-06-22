@@ -13,6 +13,7 @@ local servers = {
 	marksman = require("marviuz.utils.servers.marksman"),
 	pylsp = require("marviuz.utils.servers.pylsp"),
 	jsonls = require("marviuz.utils.servers.jsonls"),
+  rust_analyzer = require('marviuz.utils.servers.rust_analyzer'),
 }
 
 return servers

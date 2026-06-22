@@ -31,6 +31,7 @@ PKGS=(
   hyprshot
   localsend-bin
   luarocks
+  ly
   matugen-bin
   mise
   mission-center
@@ -76,3 +77,5 @@ PKGS=(
 yay -S --needed --noconfirm --sudoloop "${PKGS[@]}"
 
 mise use --global neovim@0.12
+
+sudo systemctl enable --now ly@tty2.service

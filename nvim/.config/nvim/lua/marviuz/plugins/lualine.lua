@@ -4,8 +4,13 @@ return {
 		{ "nvim-mini/mini.icons", version = "*" },
 		"nvim-lua/plenary.nvim",
 		"marviuz/grapple-line.nvim",
-		{ dir = "~/Projects/marviuz/marviuz-nvim-utils.nvim" },
+		"marviuz/marvzkers.nvim",
 	},
+	init = function()
+		-- workaround for when opening popup on startup too fast
+    -- option `2` is better though for splits
+		vim.opt.laststatus = 3
+	end,
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
@@ -33,11 +38,10 @@ return {
 			},
 			tabline = {
 				lualine_a = {
-					-- grapple_line.lualine,
-					require("marviuz-nvim-utils").lualine,
+					grapple_line.lualine,
 				},
 				lualine_z = {
-					require("marviuz-nvim-utils.marker").lualine,
+					require("marvzkers").lualine,
 				},
 			},
 			sections = {

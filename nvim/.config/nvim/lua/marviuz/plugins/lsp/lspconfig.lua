@@ -2,14 +2,16 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"b0o/schemastore.nvim",
+		"saghen/blink.cmp",
 	},
 	config = function()
 		-- local lspconfig = require("lspconfig")
 
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local blink = require("blink.cmp")
 
 		local servers = require("marviuz.utils.servers")
 		local map = require("marviuz.utils.map")
@@ -80,7 +82,7 @@ return {
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+		capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities())
 
 		for name, config in pairs(servers) do
 			vim.lsp.config(name, config)

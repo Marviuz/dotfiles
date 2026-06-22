@@ -1,24 +1,19 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+	lazy = false,
 	build = ":TSUpdate",
-	branch = "main", -- 'master' branch for neovim 0.11
+	branch = "main",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 		{
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			branch = "main",
 		},
+		"hrsh7th/nvim-anydent",
 	},
-	init = function()
-		vim.api.nvim_create_autocmd("FileType", {
-			callback = function()
-				-- Enable treesitter highlighting and disable regex syntax
-				pcall(vim.treesitter.start)
-				-- Enable treesitter-based indentation
-				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-			end,
-		})
+	config = function()
+		local treesitter = require("nvim-treesitter")
+		local auto_tag = require("nvim-ts-autotag")
 
 		local ensureInstalled = {
 			"angular",
@@ -46,17 +41,7 @@ return {
 			"yaml",
 		}
 
-		local alreadyInstalled = require("nvim-treesitter.config").get_installed()
-		local parsersToInstall = vim.iter(ensureInstalled)
-			:filter(function(parser)
-				return not vim.tbl_contains(alreadyInstalled, parser)
-			end)
-			:totable()
-		require("nvim-treesitter").install(parsersToInstall)
-	end,
-	config = function()
-		local treesitter = require("nvim-treesitter")
-		local auto_tag = require("nvim-ts-autotag")
+		treesitter.install(ensureInstalled)
 
 		treesitter.setup({
 			incremental_selection = {
@@ -77,6 +62,26 @@ return {
 		})
 
 		auto_tag.setup()
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "*",
+			callback = function(args)
+				local buf = args.buf
+				local ft = vim.bo[buf].filetype
+
+				local lang = vim.treesitter.language.get_lang(ft)
+
+				if not lang then
+					return
+				end
+
+				pcall(vim.treesitter.start, buf, lang)
+
+				-- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				require("anydent").attach()
+			end,
+		})
 
 		vim.filetype.add({
 			extension = {

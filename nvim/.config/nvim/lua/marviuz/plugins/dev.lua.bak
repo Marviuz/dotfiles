@@ -1,0 +1,37 @@
+return {
+	dir = "~/Projects/marviuz/marvzkers.nvim",
+	config = function()
+		local marvzkers = require("marvzkers")
+
+		local map = require("marviuz.utils.map")
+
+		marvzkers.setup()
+
+		map("n", "<leader>ma", function()
+			marvzkers.mark()
+		end, { desc = "Marker toggle" })
+
+		map("n", "<leader>mm", function()
+			marvzkers.toggle_marker_window(function(bufnr)
+				-- Setup keymaps for the opened buffer
+				map("n", "q", function()
+					marvzkers.toggle_marker_window()
+				end, { buffer = bufnr })
+
+				map("n", "<leader>w", function()
+					marvzkers.save_window()
+				end, { desc = "Save and exit markers", buffer = bufnr })
+
+				map("n", "<CR>", function()
+					marvzkers.select()
+				end, { buffer = bufnr })
+			end)
+		end, { desc = "Open markers" })
+
+		for idx = 0, 9 do
+			map("n", "<leader>m" .. idx, function()
+				marvzkers.jump({ index = idx })
+			end, { desc = "Marker jump " .. idx })
+		end
+	end,
+}
