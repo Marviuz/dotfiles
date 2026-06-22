@@ -68,6 +68,7 @@ PKGS=(
   xclip
   xdg-desktop-portal-hyprland
   zen-browser-bin
+  zig
   zoxide
   zsh
   zsh-autocomplete-git
