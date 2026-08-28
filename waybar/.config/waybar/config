@@ -7,11 +7,16 @@
     "layer": "top",
     "position": "top",
     // "height": 32,
-
     // ─────────────────────────────────────────────────────────────
     // Module Layout
     // ─────────────────────────────────────────────────────────────
-    "modules-left": ["hyprland/workspaces", "custom/theme-picker", "custom/toggle-record", "custom/toggle-screenshot", "custom/toggle-gamemode"],
+    "modules-left": [
+      "hyprland/workspaces",
+      "custom/theme-picker",
+      "custom/toggle-record",
+      "custom/toggle-screenshot",
+      "custom/toggle-gamemode"
+    ],
     // "modules-center": ["hyprland/window"],
     "modules-right": [
       // "custom/opacity",
@@ -29,7 +34,6 @@
       "clock",
       "group/power"
     ],
-
     // ─────────────────────────────────────────────────────────────
     // Workspaces
     // ─────────────────────────────────────────────────────────────
@@ -43,14 +47,12 @@
         "active": "●"
       }
     },
-
     // ─────────────────────────────────────────────────────────────
     // Focused Window
     // ─────────────────────────────────────────────────────────────
     // "hyprland/window": {
     //   // Default config is fine, styling is done in CSS
     //},
-
     // ─────────────────────────────────────────────────────────────
     // Audio / Volume
     // ─────────────────────────────────────────────────────────────
@@ -66,7 +68,10 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", ""]
+        "default": [
+          "",
+          ""
+        ]
       },
       "on-click": "pavucontrol"
     },
@@ -74,48 +79,51 @@
       "scroll-step": 5,
       "format": "{volume}% {icon}",
       "format-bluetooth": "{volume}% {icon}",
-      "format-muted": "",  // microphone-slash
+      "format-muted": "", // microphone-slash
       "format-icons": {
-        "default": ["", ""]  // microphone icons
+        "default": [
+          "",
+          ""
+        ] // microphone icons
       },
       "on-click": "pavucontrol"
     },
-
     // ─────────────────────────────────────────────────────────────
     // System Stats
     // ─────────────────────────────────────────────────────────────
     "cpu": {
       "format": "{usage}% "
     },
-
     "memory": {
       "format": "{}% ",
       "tooltip-format": "{}% RAM used"
     },
-
     "battery": {
       "states": {
         "warning": 30,
         "critical": 15
       },
       "format": "{capacity}% {icon}",
-      "format-icons": ["", "", "", "", ""]
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
     },
-
     "network": {
       "format-wifi": "{signalStrength}% ",
       "tooltip-format-wifi": "{essid} {signalStrength}% ",
       "format-ethernet": "{ifname}: {cidr} ",
       "format-disconnected": "Disconnected ⚠"
     },
-
     // ─────────────────────────────────────────────────────────────
     // Tray & Notifications
     // ─────────────────────────────────────────────────────────────
     "tray": {
       "spacing": 10
     },
-
     "custom/notification": {
       "tooltip": false,
       "format": "{icon}",
@@ -136,15 +144,29 @@
       "on-click-right": "swaync-client -d -sw",
       "escape": true
     },
-
     // ─────────────────────────────────────────────────────────────
     // Clock
     // ─────────────────────────────────────────────────────────────
     "clock": {
       "format": "{:%b %e, %Y | %a | %I:%M %p}",
-      "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}"
+      // "tooltip-format": "{:%B%e, %Y\n%A\n%I:%M %p}"
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "first-day-of-week": 1,
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      }
     },
-
     // ─────────────────────────────────────────────────────────────
     // Custom Modules
     // ─────────────────────────────────────────────────────────────
@@ -152,17 +174,23 @@
       "on-click": "~/.config/waybar/hyprland_opacity_toggle.sh",
       "format": "Opacity ●"
     },
-
     "group/sys": {
       "orientation": "horizontal",
-      "modules": ["cpu", "memory", "network", "battery"]
+      "modules": [
+        "cpu",
+        "memory",
+        "network",
+        "battery"
+      ]
     },
-
     "group/power": {
       "orientation": "horizontal",
-      "modules": ["custom/lock", "custom/reboot", "custom/shutdown"]
+      "modules": [
+        "custom/lock",
+        "custom/reboot",
+        "custom/shutdown"
+      ]
     },
-
     "custom/lock": {
       "format": "",
       "tooltip-format": "Lock",
@@ -180,11 +208,17 @@
     },
     "group/systemcenter": {
       "orientation": "horizontal",
-      "modules": ["tray", "custom/notification"]
+      "modules": [
+        "tray",
+        "custom/notification"
+      ]
     },
     "group/audio": {
       "orientation": "horizontal",
-      "modules": ["pulseaudio#input" ,"pulseaudio#output"]
+      "modules": [
+        "pulseaudio#input",
+        "pulseaudio#output"
+      ]
     },
     "custom/theme-picker": {
       "format": "",

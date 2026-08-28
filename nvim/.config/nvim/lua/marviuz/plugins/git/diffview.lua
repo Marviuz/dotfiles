@@ -5,15 +5,20 @@ return {
 	},
 	config = function()
 		local diffview = require("diffview")
-		local map = require("marviuz.utils.map")
 
 		diffview.setup({
+			enhanced_diff_hl = true,
 			merge_tool = {
 				layout = "diff3_mixed",
 			},
 		})
 
-		map("n", "<leader>dfo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
-		map("n", "<leader>dfx", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
+		vim.api.nvim_create_user_command("Dfo", function()
+			vim.cmd("DiffviewOpen")
+		end, { desc = "Open Diff View" })
+
+		vim.api.nvim_create_user_command("Dfx", function()
+			vim.cmd("DiffviewClose")
+		end, { desc = "Close Diff View" })
 	end,
 }

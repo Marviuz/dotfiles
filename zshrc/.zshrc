@@ -46,10 +46,10 @@ autoload -Uz compinit; compinit
 # zstyle ':completion:*' list-dirs-first true
 # zstyle ':completion:*' list-suffixes true
 # setopt INC_APPEND_HISTORY
-# setopt SHARE_HISTORY
-# setopt HIST_IGNORE_ALL_DUPS
-# setopt HIST_IGNORE_SPACE
-# setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
 # HISTFILE=~/.zsh_history
 # HISTSIZE=10000
 # SAVEHIST=10000

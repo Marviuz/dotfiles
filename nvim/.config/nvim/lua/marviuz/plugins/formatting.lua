@@ -48,6 +48,10 @@ return {
 				async = false,
 				timeout_ms = 10000,
 			})
+
+			if vim.fn.exists(":LspEslintFixAll") == 2 then
+				vim.cmd("LspEslintFixAll")
+			end
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }

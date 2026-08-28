@@ -1,13 +1,17 @@
 return {
 	filetypes = {
-		"htmlangular",
 		"html",
-		"typescriptreact",
+
+		"htmlangular",
 		"javascriptreact",
-		"css",
-		"sass",
-		"scss",
-		"less",
+		"typescriptreact",
+		"vue",
 		"svelte",
+
+		"css",
+		"scss",
+		"sass",
+		"less",
 	},
 }
+

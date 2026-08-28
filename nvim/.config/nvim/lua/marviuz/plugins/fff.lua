@@ -83,6 +83,13 @@ return {
 			function()
 				require("fff").find_files_in_dir("~/dotfiles/nvim/.config/nvim")
 			end,
+			desc = "Fsdfind config files",
+		},
+		{
+			"<leader>fn",
+			function()
+				require("fff").find_files_in_dir("~/Projects/marviuz/obsidian-notes")
+			end,
 			desc = "Find config files",
 		},
 	},

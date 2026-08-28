@@ -44,7 +44,21 @@ return {
 
 		for idx = 0, 9 do
 			map("n", "<leader>" .. idx, function()
-				grapple.select({ index = idx })
+				local tags = grapple.tags()
+				local selectedTagPath = tags[idx].path
+				local filename = vim.fn.fnamemodify(selectedTagPath, ":t")
+
+				-- grapple.select() doesn't work when filename starts from $ 
+        -- e.g. tanstack start/router filename convention ($slug.tsx)
+				-- But works when the filename is just $ (e.g. $.tsx)
+				if filename:sub(1, 1) == "$" then
+					local abspath = vim.fn.fnamemodify(selectedTagPath, ":p")
+					local bufnr = vim.fn.bufadd(abspath)
+					vim.fn.bufload(bufnr)
+					vim.api.nvim_set_current_buf(bufnr)
+				else
+					grapple.select({ index = idx })
+				end
 			end, { desc = "Grapple select " .. idx })
 		end
 
@@ -53,13 +67,23 @@ return {
 			callback = function()
 				local path = vim.api.nvim_buf_get_name(0)
 
-				if path:match("^oil://") or vim.bo.filetype == "oil" then
+				local ignore = {
+					"",
+					"gitcommit",
+					"grapple",
+					"oil",
+					"gitrebase",
+				}
+
+				if vim.bo.buftype ~= "" or vim.tbl_contains(ignore, vim.bo.filetype) then
 					return
 				end
 
-				if vim.bo.buftype ~= "" or vim.bo.filetype == "grapple" or vim.bo.filetype == "" then
+				if path:match("^oil://") then
 					return
 				end
+
+				-- vim.notify(vim.inspect({ path = path, buftype = vim.bo.buftype }), vim.log.levels.DEBUG)
 
 				local tags = grapple.tags() or {}
 
