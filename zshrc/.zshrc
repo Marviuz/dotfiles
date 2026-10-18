@@ -106,3 +106,6 @@ bindkey '^B' git_branch_search
 alias ls='exa'
 alias fk='fuck'
 alias lazypodman='DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker'
+
+# Vite+ bin (https://viteplus.dev)
+# . "/home/marviuz/.config/vite-plus/env"

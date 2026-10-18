@@ -46,12 +46,11 @@ return {
 			map("n", "<leader>" .. idx, function()
 				local tags = grapple.tags()
 				local selectedTagPath = tags[idx].path
-				local filename = vim.fn.fnamemodify(selectedTagPath, ":t")
 
-				-- grapple.select() doesn't work when filename starts from $ 
-        -- e.g. tanstack start/router filename convention ($slug.tsx)
-				-- But works when the filename is just $ (e.g. $.tsx)
-				if filename:sub(1, 1) == "$" then
+				-- grapple.select() breaks when the path contains a literal `$`
+				-- anywhere (not just filenames) because it gets vim-expanded
+				-- as an environment variable, e.g. .../$slug/... -> .../...
+				if selectedTagPath:find("%$") then
 					local abspath = vim.fn.fnamemodify(selectedTagPath, ":p")
 					local bufnr = vim.fn.bufadd(abspath)
 					vim.fn.bufload(bufnr)
